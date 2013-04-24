@@ -8,9 +8,14 @@
 	$firstName=htmlspecialchars($_POST['firstName']);
 	$lastName=htmlspecialchars($_POST['lastName']);
 	$emailAdd=htmlspecialchars($_POST['emailAdd']);
+	$gender=htmlspecialchars($_POST['gender']);
+	$birthMonth=htmlspecialchars($_POST['birth_month']);
+	$birthDay=htmlspecialchars($_POST['birth_day']);
+	$birthYear=htmlspecialchars($_POST['birth_year']);
+	
 	
 	$pstmt2 = "select * from user where username = \"{$username}\"";
-	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\",NULL,NULL,NULL,\"{$emailAdd}\")";
+	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\", \"{$gender}\", '$birthYear-$birthMonth-$birthDay', NULL,\"{$emailAdd}\")";
 	
 	$result = mysql_query($pstmt2,$conn);
 	if(mysql_num_rows($result)){
