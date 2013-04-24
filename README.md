@@ -12,7 +12,7 @@ Connecting to the database:
     
     Parameter	| Description
     -------------------------------------------------------------------------------------
-    host		  | Optional. Either a host name or an IP address
+    host		| Optional. Either a host name or an IP address
     username	| Optional. The MySQL user name
     password	| Optional. The password to log in with
     dbname		| Optional. The default database to be used when performing queries

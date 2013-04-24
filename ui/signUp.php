@@ -6,14 +6,21 @@
 	</head>
 	<body>
 		<?php  
-			if(isset($_GET['invalidUsername'])){
+			if(isset($_GET['invalidUsername'])|| isset($_GET['invalidUsernameAndPassword'])){
 				echo "<p style='font-size:15px; color:red'>Username already taken.</p>";
 			}
 			else echo "Create an Account"; 
 		?>
 		<form method="POST" action="../back/do_signup.php">
 			Username<br/><input class="textbox" type="text" name="username" pattern="[A-Za-z0-9]{8,20}" title="must be at least 8 characters"  required=""/><br/>
-			Create Password<br/><input class="textbox" type="password" pattern="[A-Za-z0-9]{8,20}" title="must be at least 8 characters" name="password" required=""/><br/>
+			<?php
+				if(isset($_GET['invalidPassword']) || isset($_GET['invalidUsernameAndPassword'])){
+					echo "<p style='font-size:15px; color:red'>Passwords did not match.</p>";
+				}
+			?>
+			Create Password<br/>
+			<input class="textbox" type="password" pattern="[A-Za-z0-9]{8,20}" title="must be at least 8 characters" name="password" required=""/><br/>
+			Confirm Password<br/><input class="textbox" type="password" title="must be at least 8 characters" name="confirmPassword" required=""/><br/>
 			Name<br/>
 			<input name="firstName" placeholder= "First" type="text" title="Enter your first name"  required=""/>
 			<input name="lastName" placeholder= "Last" type="text" title="Enter your last name"  required=""/><br/>

@@ -4,6 +4,7 @@
 	//fetch data from post
 	$username=htmlspecialchars($_POST['username']);
 	$password=htmlspecialchars($_POST['password']);
+	$confirmPassword=htmlspecialchars($_POST['confirmPassword']);
 	$firstName=htmlspecialchars($_POST['firstName']);
 	$lastName=htmlspecialchars($_POST['lastName']);
 	$emailAdd=htmlspecialchars($_POST['emailAdd']);
@@ -13,7 +14,13 @@
 	
 	$result = mysql_query($pstmt2,$conn);
 	if(mysql_num_rows($result)){
-		header("location:../ui/signUp.php?invalidUsername");
+		if(strcmp($password,$confirmPassword)!==0){
+			header("location:../ui/signUp.php?invalidUsernameAndPassword");
+		}
+		else header("location:../ui/signUp.php?invalidUsername");
+	}
+	else if(strcmp($password,$confirmPassword)!==0){
+		header("location:../ui/signUp.php?invalidPassword");
 	}
 	else{
 		mysql_query($pstmt,$conn);
