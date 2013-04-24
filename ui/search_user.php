@@ -22,10 +22,12 @@
 			//queries
 			$query1="select * from user where username=\"{$username2}\"";
 			$query2="select * from user where username=\"{$username1}\"";
+			$query3="select * from mypeeks where username=\"{$username1}\" and peeks=\"{$username2}\"";
 			
 			//submit queries
 			$result1=mysql_query($query1,$conn);
 			$result2=mysql_query($query2,$conn);
+			$result3=mysql_query($query3,$conn);
 			
 			//checks if the username entered by the user exists in the database
 			if(mysql_num_rows($result1)){
@@ -33,14 +35,20 @@
 						$username3=$row['username'];
 						//checks if the username being seeached is the user's own username, if true, just show the user's username
 						if(strcmp($username2,$username3)==0){
-							echo '<input name="userName" type="text" value="'.$username2.'"/><br/>';
+							echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
 						}
 						//else print the username along with a "peek button"
 						else{
-							echo '<form method="POST" action="../back/do_peek_user.php">';
-							echo '<input name="userName" type="text" value="'.$username2.'"/>';
-							echo '<input class="submit" type="submit" value="Peek"/><br/>';
-							echo '</form>';
+							//checks if the user is already peeking the use he/she searched.
+							if(mysql_num_rows($result3)){
+								echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/><br/>';
+							}
+							else{
+								echo '<form method="POST" action="../back/do_peek_user.php">';
+								echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
+								echo '<input class="submit" type="submit" value="Peek"/><br/>';
+								echo '</form>';
+							}
 						}
 					
 				}
@@ -49,9 +57,9 @@
 			else{
 				echo "user not in the database.";
 			}
-			echo '<input type="button" value="Back" onClick="history.go(-1);return true;">'; //back
+			echo '<a href="peek_page.php"><input type="button" name="Cancel" value="Cancel"/></a>'; //cancel button for now..... fix it later
 			mysql_close($conn);
 		?>
-		
+		<a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>

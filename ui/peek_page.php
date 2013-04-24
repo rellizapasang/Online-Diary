@@ -38,7 +38,7 @@
 				//checks if the username in the database matches with the session username of the user, if true, print the username the user peeks  
 				if(strcmp($username,$row['username'])==0){
 					echo '<form method="POST" action="../back/do_unpeek_user.php">';
-					echo '<input name="userName" type="text" value="'.$username2.'"/>';
+					echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
 					echo '<input class="submit" type="submit" value="Unpeek"/><br/>';
 					echo '</form>';
 					
@@ -54,9 +54,9 @@
 				}
 			}
 			
-			echo '<input type="button" value="Back" onClick="history.go(-1);return true;">'; //back
+			echo '<a href="profile.php"><input type="button" name="Cancel" value="Back"/></a>'; //back button for now..... fix it later
 			mysql_close($conn);
 		?>
-		
+		<a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>
