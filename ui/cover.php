@@ -15,5 +15,6 @@
 		<?php echo "{$_SESSION['username']}'s Diary"; ?>
 		<a href="profile.php">My Profile</a>
 		<!--POST-->	
+		<a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>

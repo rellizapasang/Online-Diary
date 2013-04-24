@@ -33,7 +33,7 @@
 			}
 			mysql_close($conn);
 		?>
-		
+		<a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>
 

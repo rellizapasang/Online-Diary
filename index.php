@@ -17,13 +17,13 @@
 	<body>
 		<?php  
 			if(isset($_GET['invalidlogin'])){
-					echo "<p style='font-size:15px; color:red'>Username and Password does not match!</p>";
+					echo "<p style='font-size:15px; color:red'>Username and Password do not match!</p>";
 			}
 			else echo "Unlock Your Diary!! :)";
 		?>
 		<form method="POST" action="back/do_login.php">
 			Username<input type="text" name="username" title="Enter username" required=""/><br/>
-			Password<input type="password" name="password" pattern="[A-Za-z0-9]{8}" title="Enter password" required=""/>
+			Password<input type="password" pattern="[A-Za-z0-9]{8,20}" title="must be at least 8 characters" name="password" required=""/>
 			<input name="loginButton" class="submit" type="submit" value="Login"/>
 		</form>
 			Need an account?<br/>

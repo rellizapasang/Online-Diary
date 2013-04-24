@@ -23,7 +23,7 @@
 				echo "BIRTHDATE: {$row['birth_date']}<br/>";
 				echo "GENDER: {$row['gender']}<br/>";
 				echo "HOME ADDRESS: {$row['home_add']}<br/>";
-				echo '<a href="manage_profile.php">Manage Profile</a>';
+				echo '<a href="manage_profile.php">Manage Profile</a><br/>';
 				echo '<a href="manage_account.php">Manage Account</a><br/>';
 				echo '<a href="home.php">Go to my diary..</a>';
 				echo '<a href="peek_page.php">Peeks</a><br/>';
@@ -31,6 +31,6 @@
 			}
 			mysql_close($conn);
 		?>
-		
+		<a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>

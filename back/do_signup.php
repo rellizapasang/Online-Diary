@@ -9,7 +9,7 @@
 	$emailAdd=htmlspecialchars($_POST['emailAdd']);
 	
 	$pstmt2 = "select * from user where username = \"{$username}\"";
-	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\",NULL,\"{$emailAdd}\")";
+	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\",NULL,NULL,NULL,\"{$emailAdd}\")";
 	
 	$result = mysql_query($pstmt2,$conn);
 	if(mysql_num_rows($result)){
