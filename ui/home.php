@@ -30,6 +30,7 @@
 			<input class="post" type="submit" name = "textButton" value = "POST"/><br/>
 		</form>
 		<button type="button" onclick="postQuote()">Insert Quote</button>
+		<button type="button" onclick="postLink()">Insert Link</button>
 		<div id="postArea">
 			<?php
 				if(isset($_GET['insertedQuote'])){
