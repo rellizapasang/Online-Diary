@@ -37,10 +37,17 @@
 				$username2=$row['peeks'];
 				//checks if the username in the database matches with the session username of the user, if true, print the username the user peeks  
 				if(strcmp($username,$row['username'])==0){
-					echo '<form method="POST" action="../back/do_unpeek_user.php">';
-					echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
-					echo '<input class="submit" type="submit" value="Unpeek"/><br/>';
+					//button to view other user's profile
+					echo '<form method="POST" action="../ui/view_profile.php">';
+					echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/><br/>';
+					echo '<input class="submit" type="submit" value="View Profile"/>';
 					echo '</form>';
+					//button to unpeek other user
+					echo '<form method="POST" action="../back/do_unpeek_user.php">';
+					echo '<input name="userName" type="hidden" value="'.$username2.'"/>';
+					echo '<input class="submit" type="submit" value="Unpeek"/><br/><br/>';
+					echo '</form>';
+					
 					
 				}	
 			}
