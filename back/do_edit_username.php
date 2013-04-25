@@ -10,11 +10,13 @@
 	$username2=htmlspecialchars($_POST['userName']);
 	
 	$query1="select * from user where username = \"{$username2}\"";  
-	$query2="UPDATE user SET username=\"{$username2}\" WHERE username=\"{$username}\"";
 	
-	//temporary query to update change of username in mypeeks and mypeekers database
+	//temporary queries to update tables of the database when username of the user is changed
+	$query2="UPDATE user SET username=\"{$username2}\" WHERE username=\"{$username}\"";
 	$query3="UPDATE mypeeks SET username=\"{$username2}\" WHERE username=\"{$username}\"";
 	$query4="UPDATE mypeekers SET peekers=\"{$username2}\" WHERE peekers=\"{$username}\"";
+	$query5="UPDATE post SET username=\"{$username2}\" WHERE username=\"{$username}\"";
+	$query6="UPDATE comment SET username=\"{$username2}\" WHERE username=\"{$username}\"";
 	//------------------------------------------------------------------------------
 	
 	
@@ -28,6 +30,8 @@
 		mysql_query($query2,$conn);
 		mysql_query($query3,$conn);
 		mysql_query($query4,$conn);
+		mysql_query($query5,$conn);
+		mysql_query($query6,$conn);
 		header("Location:../ui/manage_account.php");
 	}
 ?>
