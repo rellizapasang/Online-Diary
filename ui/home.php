@@ -29,6 +29,7 @@
 			<textarea rows=30 cols=150 name="post_box" placeHolder="Dear Diary," required></textarea><br/> 
 			<input class="post" type="submit" name = "textButton" value = "POST"/><br/>
 		</form>
+		<button type="button" onclick="postQuote()">Insert Quote</button>
 		<div id="postArea"></div>
 		<div id="postList">
 			<?php
@@ -63,6 +64,7 @@
 								<input  class='comment_button' type='submit' value='Comment'></input>
 							  </form>";
 					}
+					if($row['type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>";
 				}
 			?>
 		</div>
