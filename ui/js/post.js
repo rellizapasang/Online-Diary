@@ -6,3 +6,14 @@ function postQuote(){
  
 	document.getElementById("postArea").innerHTML = f+formBody+submitB+fe;
 }
+
+ 
+function postLink(){
+	
+	var f = '<form method = "POST" action = "../back/do_post.php">';
+	var formBody = '<textarea rows=6 cols=80 name="postLink" placeHolder="Link" required=""></textarea><br/>'; 
+	var submitB	= '<input class="post" type="submit" name = "linkButton" value = "Share it!"/><br/>';
+	var fe = '</form>';
+ 
+	document.getElementById("postArea").innerHTML = f+formBody+submitB+fe;
+}

@@ -15,11 +15,11 @@
 
 	<body>
 	<script>
-		var currentTime = new Date()
+		var currentDate = new Date()
 		//currentTime=currentTime.toUTCString();
-		var month = currentTime.getMonth() + 1
-		var day = currentTime.getDate()
-		var year = currentTime.getFullYear()
+		var month = currentDate.getMonth() + 1
+		var day = currentDate.getDate()
+		var year = currentDate.getFullYear()
 		document.write("<h2 style='float:right'>"+month + "/" + day + "/" + year + "</h2>")
 	</script>
 	<!--ADD-->
@@ -30,7 +30,16 @@
 			<input class="post" type="submit" name = "textButton" value = "POST"/><br/>
 		</form>
 		<button type="button" onclick="postQuote()">Insert Quote</button>
-		<div id="postArea"></div>
+		<div id="postArea">
+			<?php
+				if(isset($_GET['insertedQuote'])){
+					echo "<p>Quote inserted! :)</p>";
+				}
+				else if(isset($_GET['insertedLink'])){
+					echo "<p>Link inserted! :)</p>";
+				}
+			?>
+		</div>
 		<div id="postList">
 			<?php
 				//for viewing posts
@@ -41,7 +50,7 @@
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
 					//checks if the post is a text type post
-					if($row['type'] === 'text') {
+					if($row['post_type'] === 'text') {
 						//prompt the post
 						echo $row['username']." : ".$row['post_content']."<br/>";
 						//this will retrieve the comments
@@ -64,11 +73,15 @@
 								<input  class='comment_button' type='submit' value='Comment'></input>
 							  </form>";
 					}
-					if($row['type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>";
+					else if($row['post_type'] === 'quote') {
+						echo $row['post_content']."<br/>";
+					}
+					else if($row['post_type'] === 'link'){
+						echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>';
+					}
 				}
 			?>
 		</div>
-		<div id="postArea"></div>
 		-Publish as private or public
 		-view previous posts
 
