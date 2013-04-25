@@ -35,13 +35,19 @@
 						$username3=$row['username'];
 						//checks if the username being seeached is the user's own username, if true, just show the user's username
 						if(strcmp($username2,$username3)==0){
+							echo '<form method="POST" action="../ui/profile.php">';
 							echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
+							echo '<input class="submit" type="submit" value="My Profile"/><br/>';
+							echo '</form>';
 						}
 						//else print the username along with a "peek button"
 						else{
 							//checks if the user is already peeking the use he/she searched.
 							if(mysql_num_rows($result3)){
-								echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/><br/>';
+								echo '<form method="POST" action="../ui/view_profile.php">';
+								echo $username2.'<input name="userName" type="hidden" value="'.$username2.'"/>';
+								echo '<input class="submit" type="submit" value="View Profile"/><br/>';
+								echo '</form>';
 							}
 							else{
 								echo '<form method="POST" action="../back/do_peek_user.php">';
