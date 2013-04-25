@@ -31,6 +31,7 @@
 		</form>
 		<button type="button" onclick="postQuote()">Insert Quote</button>
 		<button type="button" onclick="postLink()">Insert Link</button>
+		<button type="button" onclick="postImage()">Insert Image</button>
 		<div id="postArea">
 			<?php
 				if(isset($_GET['insertedQuote'])){
@@ -38,6 +39,9 @@
 				}
 				else if(isset($_GET['insertedLink'])){
 					echo "<p>Link inserted! :)</p>";
+				}
+				else if(isset($_GET['insertedImage'])){
+					echo "<p>Image inserted! :)</p>";
 				}
 			?>
 		</div>
@@ -79,6 +83,9 @@
 					}
 					else if($row['post_type'] === 'link'){
 						echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>';
+					}
+					else if($row['post_type']==='image'){
+						echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>";
 					}
 				}
 			?>

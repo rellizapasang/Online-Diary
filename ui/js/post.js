@@ -17,3 +17,14 @@ function postLink(){
  
 	document.getElementById("postArea").innerHTML = f+formBody+submitB+fe;
 }
+
+function postImage(){
+	
+	var f = '<form method = "POST" action ="../back/do_post.php" enctype="multipart/form-data">';
+	var formBody = '<input type="file" name="picture"  required/>';
+	var submitB = '<input  class="post" type="submit" name="photoButton" value="UPLOAD" /><br/>';
+	var fe = '</form>';
+	
+	document.getElementById("postArea").innerHTML = f+formBody+submitB+fe;
+
+}

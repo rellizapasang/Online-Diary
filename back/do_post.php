@@ -23,6 +23,13 @@
 		$type = 'link';
 		header("Location:../ui/home.php?insertedLink");
 	}
+	else{
+		move_uploaded_file($_FILES['picture']['tmp_name'],'../ui/post_images/'.$_FILES['picture']['name']);
+		$post_content = $_FILES['picture']['name'];
+		$username=$_SESSION['username'];
+		$type = 'image';
+		header("Location:../ui/home.php?insertedImage");
+	}
 	$insertQuery = "insert into post(username,date_posted,post_content,post_type) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\")";
 	mysql_query($insertQuery,$conn);
 	mysql_close($conn);
