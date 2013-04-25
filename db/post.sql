@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2013 at 07:37 AM
+-- Generation Time: Apr 25, 2013 at 08:39 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -27,18 +27,17 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `post` (
   `username` varchar(50) NOT NULL,
-  `post_content` varchar(3000) NOT NULL,
-  `type` varchar(20) NOT NULL,
   `date_posted` date NOT NULL,
+  `post_content` varchar(3000) NOT NULL,
+  `post_type` varchar(10) NOT NULL,
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=85 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=180 ;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`username`, `post_content`, `type`, `date_posted`, `post_id`) VALUES
-('rellizapasang', 'Today I was soooo beautiful :&quot;&gt;', 'text', '2013-04-24', 84),
-('rellizapasang', 'dfsdfsdf', 'text', '2013-04-24', 83),
-('rellizapasang', 'asdasdasd', 'text', '2013-04-24', 81);
+INSERT INTO `post` (`username`, `date_posted`, `post_content`, `post_type`, `post_id`) VALUES
+('rellizapasang', '2013-04-25', '&quot;sadd&quot;-me', 'quote', 178),
+('rellizapasang', '2013-04-25', 'sdfsdf', 'link', 179);
