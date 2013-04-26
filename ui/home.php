@@ -78,7 +78,7 @@
 						echo $comment_row['username'].": ".$comment_row['comment_content'];
 						if($comment_row['username']==$_SESSION['username']){
 							//deletes comment
-							echo "<form method='POST' action='../back/do_delete_comment.php'>";
+							echo "<form method='POST' onSubmit='return deleteCommentAlert()' action='../back/do_delete_comment.php'>";
 							echo "<input id='remove_button' type='submit' value='Remove'></input>";
 							echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
 							echo "<div class='date'>".$comment_row['date']."</div></div>";
