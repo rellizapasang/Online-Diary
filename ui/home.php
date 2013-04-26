@@ -79,13 +79,70 @@
 							  </form>";
 					}
 					else if($row['post_type'] === 'quote') {
-						echo $row['post_content']."<br/>";
+						echo $row['username']." : ".$row['post_content']."<br/>";
+						//this will retrieve the comments
+						$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
+						$result2=mysql_query($retrieveComment,$conn);
+						while($comment_row=mysql_fetch_array($result2)){
+							echo $comment_row['username'].": ".$comment_row['comment_content'];
+							if($comment_row['username']==$_SESSION['username']){
+								echo "<form method='POST' action='../back/do_delete_comment.php'>";
+								echo "<input id='remove_button' type='submit' value='Remove'></input>";
+								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
+								echo "<div class='date'>".$comment_row['date']."</div></div>";
+							}
+							else echo "<div class='date'>".$comment_row['date']."</div></div>";
+						}
+						//this will add comment to a post
+						echo "<form method='POST' action='../back/do_add_comment.php'>
+								<textarea style='margin-left:10px;margin-bottom:10px;' rows=3 cols=93 placeholder='comment..' size=60 name='comment_box' required='required'></textarea>
+								<input type='hidden' name='post_id' value=".$row['post_id']."></input>
+								<input  class='comment_button' type='submit' value='Comment'></input>
+							  </form>";
 					}
 					else if($row['post_type'] === 'link'){
 						echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>';
+						//this will retrieve the comments
+						$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
+						$result2=mysql_query($retrieveComment,$conn);
+						while($comment_row=mysql_fetch_array($result2)){
+							echo $comment_row['username'].": ".$comment_row['comment_content'];
+							if($comment_row['username']==$_SESSION['username']){
+								echo "<form method='POST' action='../back/do_delete_comment.php'>";
+								echo "<input id='remove_button' type='submit' value='Remove'></input>";
+								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
+								echo "<div class='date'>".$comment_row['date']."</div></div>";
+							}
+							else echo "<div class='date'>".$comment_row['date']."</div></div>";
+						}
+						//this will add comment to a post
+						echo "<form method='POST' action='../back/do_add_comment.php'>
+								<textarea style='margin-left:10px;margin-bottom:10px;' rows=3 cols=93 placeholder='comment..' size=60 name='comment_box' required='required'></textarea>
+								<input type='hidden' name='post_id' value=".$row['post_id']."></input>
+								<input  class='comment_button' type='submit' value='Comment'></input>
+							  </form>";
 					}
 					else if($row['post_type']==='image'){
 						echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>";
+						//this will retrieve the comments
+						$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
+						$result2=mysql_query($retrieveComment,$conn);
+						while($comment_row=mysql_fetch_array($result2)){
+							echo $comment_row['username'].": ".$comment_row['comment_content'];
+							if($comment_row['username']==$_SESSION['username']){
+								echo "<form method='POST' action='../back/do_delete_comment.php'>";
+								echo "<input id='remove_button' type='submit' value='Remove'></input>";
+								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
+								echo "<div class='date'>".$comment_row['date']."</div></div>";
+							}
+							else echo "<div class='date'>".$comment_row['date']."</div></div>";
+						}
+						//this will add comment to a post
+						echo "<form method='POST' action='../back/do_add_comment.php'>
+								<textarea style='margin-left:10px;margin-bottom:10px;' rows=3 cols=93 placeholder='comment..' size=60 name='comment_box' required='required'></textarea>
+								<input type='hidden' name='post_id' value=".$row['post_id']."></input>
+								<input  class='comment_button' type='submit' value='Comment'></input>
+							  </form>";
 					}
 				}
 			?>
