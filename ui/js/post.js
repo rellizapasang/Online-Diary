@@ -28,3 +28,12 @@ function postImage(){
 	document.getElementById("postArea").innerHTML = f+formBody+submitB+fe;
 
 }
+
+function deletePostAlert(){
+	var a = confirm("Are you sure you want to delete this post?");
+		if(a==true){
+			alert("Post deleted");
+			return true;
+		}
+		else return false;
+}

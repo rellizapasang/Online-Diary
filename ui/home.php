@@ -62,6 +62,14 @@
 					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
 					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
 /***
+*	REMOVE POST
+*/
+				if($row['username']==$_SESSION['username']){
+					echo '<form method="POST" onSubmit="return deletePostAlert()" action="../back/do_remove_post.php">';
+					echo "<input id='remove_post_button' type='submit' value='Remove Post'></input>";
+					echo "<input type='hidden' name='post_id' value=".$row['post_id']."></input></form>";
+				}
+/***
 *	RETRIEVE COMMENTS
 */
 					$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
