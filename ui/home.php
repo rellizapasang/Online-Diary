@@ -51,6 +51,7 @@
 				require_once("../back/connect.php");
 				$username = $_SESSION['username'];
 				
+				
 /***
 *	RETRIEVE POSTS
 */				
@@ -61,6 +62,25 @@
 					else if($row['post_type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>"; //displays quote
 					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
 					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
+					//LIKE/UNLIKE BUTTON
+					$checkPostStatus = "select * from post where username='{$row['username']}' and post_id='{$row['post_id']}'";
+					$result2=mysql_query($checkPostStatus);
+					while($row2=mysql_fetch_array($result2)){
+						if($row2['status']=='unlike'){
+							echo '<form method="POST" action="../back/do_like_post.php">';
+							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+							echo "<input type='submit' value='Like'></input>";
+							echo "</form>";
+						}
+						else if($row2['status']=='like'){
+							echo '<form method="POST" action="../back/do_unlike_post.php">';
+							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+							echo "<input type='submit' value='Unlike'></input>";
+							echo "</form>";
+						}
+					}
 /***
 *	REMOVE POST
 */
