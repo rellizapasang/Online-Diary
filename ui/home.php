@@ -68,25 +68,26 @@
 				$username=$row['username'];
 			}
 			echo $content;
-			//LIKE/UNLIKE BUTTON
-					$checkPostStatus = "select * from post where username='{$row['username']}' and post_id='{$row['post_id']}'";
-					$result2=mysql_query($checkPostStatus);
-					while($row2=mysql_fetch_array($result2)){
-						if($row2['status']=='unlike'){
-							echo '<form method="POST" action="../back/do_like_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Like'></input>";
-							echo "</form>";
-						}
-						else if($row2['status']=='like'){
-							echo '<form method="POST" action="../back/do_unlike_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Unlike'></input>";
-							echo "</form>";
-						}
-					}
+/***
+*	LIKE/UNLIKE BUTTON
+*/
+			$checkPostStatus = "select * from post where username='{$username}' and date_posted='{$date_posted}'";
+			$result2=mysql_query($checkPostStatus);
+			$row2=mysql_fetch_array($result2);
+			if($row2['status']=='unlike'){
+				echo '<form method="POST" action="../back/do_like_post.php">';
+				echo '<input name="userName" type="hidden" value="'.$username.'"/><br/>';
+				echo '<input name="date_posted" type="hidden" value="'.$date_posted.'">';
+				echo "<input type='submit' value='Like'></input>";
+				echo "</form>";
+			}
+			else if($row2['status']=='like'){
+				echo '<form method="POST" action="../back/do_unlike_post.php">';
+				echo '<input name="userName" type="hidden" value="'.$username.'"/><br/>';
+				echo '<input name="date_posted" type="hidden" value="'.$date_posted.'">';
+				echo "<input type='submit' value='Unlike'></input>";
+				echo "</form>";
+			}	
 /***
 *	REMOVE POST
 */

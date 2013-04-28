@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2013 at 06:43 AM
+-- Generation Time: Apr 28, 2013 at 06:33 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -26,7 +26,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `like_table` (
-  `post_id` int(11) NOT NULL,
+  `date_posted` date NOT NULL,
   `username` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -34,5 +34,6 @@ CREATE TABLE IF NOT EXISTS `like_table` (
 -- Dumping data for table `like_table`
 --
 
-INSERT INTO `like_table` (`post_id`, `username`) VALUES
-(223, 'AthanPandi');
+INSERT INTO `like_table` (`date_posted`, `username`) VALUES
+('0000-00-00', 'AthanPandi'),
+('2013-04-28', 'rellizapasang');
