@@ -54,15 +54,21 @@
 				
 /***
 *	RETRIEVE POSTS
-*/				
-				$retrieveQuery = "select * from post where username = '{$username}' order by date_posted desc";				
-				$result=mysql_query($retrieveQuery,$conn);
-				while($row=mysql_fetch_array($result)){
-					if($row['post_type'] === 'text') echo $row['username']." : ".$row['post_content']."<br/>"; //displays text
-					else if($row['post_type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>"; //displays quote
-					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
-					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
-					//LIKE/UNLIKE BUTTON
+*/			
+			$retrieveQuery = "select * from post where username = '{$username}' AND date(date_posted)=date(now())";				
+			$result=mysql_query($retrieveQuery,$conn);
+			$content= "{$username}'s today's post<br/>";
+			$date_posted=$result['date_posted'];
+			while($row=mysql_fetch_array($result)){
+				if($row['post_type'] === 'text') $content=$content.$row['post_content']."<br/>"; //displays text				
+				if($row['post_type'] === 'quote') $content=$content.$row['post_content']."<br/>"; //displays quote
+				else if($row['post_type'] === 'link') $content=$content.'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
+				else if($row['post_type'] === 'image') $content=$content."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
+				$date_posted=$row['date_posted'];
+				$username=$row['username'];
+			}
+			echo $content;
+			//LIKE/UNLIKE BUTTON
 					$checkPostStatus = "select * from post where username='{$row['username']}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkPostStatus);
 					while($row2=mysql_fetch_array($result2)){
@@ -91,7 +97,7 @@
 				}
 /***
 *	RETRIEVE COMMENTS
-*/
+
 					$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
 					$result2=mysql_query($retrieveComment,$conn);
 					while($comment_row=mysql_fetch_array($result2)){
@@ -105,6 +111,7 @@
 						}
 						else echo "<div class='date'>".$comment_row['date']."</div></div>";
 					}
+
 /***
 *	ADD COMMENT
 */
@@ -113,7 +120,7 @@
 							<input type='hidden' name='post_id' value=".$row['post_id']."></input>
 							<input  class='comment_button' type='submit' value='Comment'></input>
 						  </form>";				
-					}
+	//				}
 			?>
 		</div>
 		-Publish as private or public
