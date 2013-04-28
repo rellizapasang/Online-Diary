@@ -91,10 +91,10 @@
 /***
 *	REMOVE POST
 */
-				if($row['username']==$_SESSION['username']){
+				if($username==$_SESSION['username']){
 					echo '<form method="POST" onSubmit="return deletePostAlert()" action="../back/do_remove_post.php">';
 					echo "<input id='remove_post_button' type='submit' value='Remove Post'></input>";
-					echo "<input type='hidden' name='post_id' value=".$row['post_id']."></input></form>";
+					echo "<input type='hidden' name='date_posted' value=".$date_posted."></input></form>";
 				}
 /***
 *	RETRIEVE COMMENTS
