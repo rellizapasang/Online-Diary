@@ -3,10 +3,10 @@
 	require_once("connect.php");
 	
 	//fetch data from post
-	$post_id=htmlspecialchars($_POST['post_id']);
+	$date_posted=htmlspecialchars($_POST['date_posted']);
 	$username=htmlspecialchars($_SESSION['username']);
 	$comment_content=htmlspecialchars($_POST['comment_box']);
-	$insertQuery = "insert into comment(post_id,username,comment_content,date) values('{$post_id}',\"{$username}\",\"{$comment_content}\",sysdate())";
+	$insertQuery = "insert into comment(date_posted,username,comment_content,date) values('{$date_posted}',\"{$username}\",\"{$comment_content}\",sysdate())";
 	
 	$result=mysql_query($insertQuery,$conn);
 	mysql_close($conn);
