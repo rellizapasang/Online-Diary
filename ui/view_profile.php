@@ -21,9 +21,11 @@
 			
 			//query
 			$query="select * from user where username=\"{$username2}\"";
+			$query2="select * from mypeeks where username=\"{$username1}\" and peeks=\"{$username2}\"";
 			
 			//submit query
 			$result=mysql_query($query,$conn);
+			$result2=mysql_query($query2,$conn);
 			
 			//checks if the username entered by the user exists in the database
 			if(mysql_num_rows($result)){
@@ -33,7 +35,13 @@
 					echo "BIRTHDATE: {$row['birth_date']}<br/>";
 					echo "GENDER: {$row['gender']}<br/>";
 					echo "HOME ADDRESS: {$row['home_add']}<br/>";
-					//view posts will be inserted here.
+					if(mysql_num_rows($result2)){
+					//button to view the posts of the user
+					echo '<form method="POST" action="../ui/peek_post.php">';
+					echo '<input name="userName" type="hidden" value="'.$username2.'"/><br/>';
+					echo '<input class="submit" type="submit" value="View Posts"/>';
+					echo '</form>';
+					}
 				}
 			}
 			
