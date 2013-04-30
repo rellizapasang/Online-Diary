@@ -2,7 +2,7 @@
 	session_start();
 	//condition that checks if the session has already been set
 	if(isset($_SESSION['username'])){
-		header("Location:ui/cover.php");
+		header("Location:ui/home.php");
 	}
 ?>
 <!DOCTYPE html>

@@ -12,7 +12,7 @@
 	while($info = mysql_fetch_array($data)){
 		if(($info['username']===$username) && ($info['password'] === MD5($password))){
 			$_SESSION['username'] = $info['username'];
-			header("Location:../ui/cover.php");
+			header("Location:../ui/home.php");
 			break;
 		}
 		else header("Location:../index.php?invalidlogin");
