@@ -15,3 +15,16 @@ function deleteCommentAlert(){
 		}
 		else return false;
 }
+
+function validateForm()
+{
+	var text=document.forms["postForm"]["text"].value;
+	var image=document.forms["postForm"]["picture"].value;
+	var quote=document.forms["postForm"]["quote"].value;
+	var link=document.forms["postForm"]["link_source"].value;
+	if ((text==null || text=="") && (image==null || image=="") && (quote==null || quote=="") && (link==null || link==""))
+  	{
+  		alert("No input! Please fill the form correctly.");
+  		return false;
+  	}
+}

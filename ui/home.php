@@ -16,13 +16,13 @@
 	<body>
 	<?php include("nav.html");?>
 	<!--ADDING A POST-->
-		<form method = "POST" action = "../back/do_post.php">
+		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_post.php">
 			<input type="text" size=100 name="title" placeHolder="Title(Optional)"/><br/>
 
 			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a pic!<br/>
-			<input type="file" name="picture"  required/>
+			<input type="file" name="picture"/>
 			Image Caption:<input name="caption" type=text/><br/><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a quote!<br/>
