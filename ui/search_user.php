@@ -67,6 +67,6 @@
 			echo '<a href="peek_page.php"><input type="button" name="Cancel" value="Cancel"/></a>'; //cancel button for now..... fix it later
 			mysql_close($conn);
 		?>
-		<a href="../back/do_logout.php">Logout</a>
+		
 	</body>
 </html>
