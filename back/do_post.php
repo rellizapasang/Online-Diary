@@ -1,39 +1,22 @@
 <?php
 	session_start();
-	
+	if(!isset($_SESSION['username'])){
+		header("Location:../index.php");
+	}
 	require_once("connect.php");
 	//fetch data from post
-	
+	$username=$_SESSION['username'];
+	$title = htmlspecialchars($_POST['title']);
+	$text = htmlspecialchars($_POST['text']);
+	$img = htmlspecialchars($_POST['picture']);
+	$caption = htmlspecialchars($_POST['caption']);
+	$quote = htmlspecialchars($_POST['quote']);
+	$link_name = htmlspecialchars($_POST['link_name']);
+	$link_source = htmlspecialchars($_POST['link_source']);
 	$postPrivacy=htmlspecialchars($_POST['privacy']);
 	
-	if(isset($_POST['textButton'])){
-		$post_content=htmlspecialchars($_POST['post_box']);
-		$username=htmlspecialchars($_SESSION['username']);
-		$type = 'text';
-		header("Location:{$_SERVER['HTTP_REFERER']}");
-	}
-	else if(isset($_POST['quoteButton'])){
-		$post_author =htmlspecialchars($_POST['author']);
-		$post_content=htmlspecialchars('"'.$_POST['quote'].'"-'.$post_author);
-		$username=htmlspecialchars($_SESSION['username']);
-		$type = 'quote';
-		header("Location:../ui/home.php?insertedQuote");
-	}
-	else if(isset($_POST['linkButton'])){
-		$post_content=htmlspecialchars($_POST['postLink']);
-		$username=htmlspecialchars($_SESSION['username']);
-		$type = 'link';
-		header("Location:../ui/home.php?insertedLink");
-	}
-	else{
-		move_uploaded_file($_FILES['picture']['tmp_name'],'../ui/post_images/'.$_FILES['picture']['name']);
-		$post_content = $_FILES['picture']['name'];
-		$username=$_SESSION['username'];
-		$type = 'image';
-		header("Location:../ui/home.php?insertedImage");
-	}
-	$insertQuery = "insert into post(username,date_posted,post_content,post_type,post_privacy) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\",\"{$postPrivacy}\")";
+	$insertQuery = "insert into post(username,date_posted,post_title,text_post,image_caption,image_post,quote_post,link_name,link_source,post_privacy) values(\"{$username}\",sysdate(),\"{$title}\",\"{$text}\",\"{$caption}\",\"{$img}\",\"{$quote}\",\"{$link_name}\",\"{$link_source}\",\"{$postPrivacy}\")";
+	header("Location:{$_SERVER['HTTP_REFERER']}");
 	mysql_query($insertQuery,$conn);
 	mysql_close($conn);
-	
 ?>

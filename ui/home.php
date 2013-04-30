@@ -19,7 +19,7 @@
 		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_post.php">
 			<input type="text" size=100 name="title" placeHolder="Title(Optional)"/><br/>
 
-			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/><br/>
+			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a pic!<br/>
 			<input type="file" name="picture"/>
@@ -57,7 +57,7 @@
 					if($row['post_type'] === 'text') echo $row['username']." : ".$row['post_content']."<br/>"; //displays text
 					else if($row['post_type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>"; //displays quote
 					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
-					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
+					else if($row['post_type'] === 'image')echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
