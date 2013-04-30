@@ -11,8 +11,6 @@
 		
 		//queries
 		$deleteQuery = "delete from like_table where post_id='{$postId}' and username='{$username}'";
-		$updatePostStatus = "update post set status='unlike' where username=\"{$username2}\" and post_id='{$postId}'";
-		
 		
 		//submit queries
 		mysql_query($deleteQuery,$conn);

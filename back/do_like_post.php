@@ -7,11 +7,11 @@
 	}
 	
 	$username=htmlspecialchars($_POST['userName']);
-	$datePosted=htmlspecialchars($_POST['date_posted']);
+	$postId=htmlspecialchars($_POST['postId']);
 	
 	//queries
-	$insertQuery = "insert into like_table (date_posted,username) values('{$datePosted}',\"{$username}\")";
-	$updatePostStatus = "update post set status='like' where username=\"{$username}\" and date_posted='{$datePosted}'";
+	$insertQuery = "insert into like_table (post_id,username) values(\"{$postId}\",\"{$username}\")";
+	
 	
 	//submit queries
 	mysql_query($insertQuery,$conn);
