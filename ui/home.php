@@ -14,34 +14,33 @@
 	</head>
 
 	<body>
-	
 	<?php include("nav.html");?>
-	<!--ADD-->
+	<!--ADDING A POST-->
 		<form method = "POST" action = "../back/do_post.php">
-			<textarea rows=5 cols=100 name="post_box" placeHolder="Dear Diary," required></textarea><br/> 
-			<input class="post" type="submit" name = "textButton" value = "POST"/>
+			<input type="text" size=100 name="title" placeHolder="Title(Optional)"/><br/>
+
+			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/><br/>
+			_______________________________________________________________________________<br/><br/>  
+			Add a pic!<br/>
+			<input type="file" name="picture"  required/>
+			Image Caption:<input name="caption" type=text/><br/><br/>
+			_______________________________________________________________________________<br/><br/>  
+			Add a quote!<br/>
+			Author:<input name="author" type=text/><br/>
+			<textarea rows=2 cols=77 name="quote" placeHolder="'Quote'"></textarea><br/>
+			_______________________________________________________________________________<br/><br/>  
+			Add a Link!<br/>
+			Text to display:<input size=50 name="link_name" type=text/><br/>
+			Web address:<input size=50 name="link_source" type=text/><br/>
+			_______________________________________________________________________________<br/><br/> 
+			<br/><input class="post" type="submit" name = "textButton" value = "POST"/> 			
 			<!--Select Privacy of the post-->
 			<select name="privacy">
 				<option value="private">Private</option>
 				<option value="public">Public</option>
 			</select>
 		</form>
-		<button type="button" onclick="postQuote()">Insert Quote</button>
-		<button type="button" onclick="postLink()">Insert Link</button>
-		<button type="button" onclick="postImage()">Insert Image</button>
-		<div id="postArea">
-			<?php
-				if(isset($_GET['insertedQuote'])){
-					echo "<p>Quote inserted! :)</p>";
-				}
-				else if(isset($_GET['insertedLink'])){
-					echo "<p>Link inserted! :)</p>";
-				}
-				else if(isset($_GET['insertedImage'])){
-					echo "<p>Image inserted! :)</p>";
-				}
-			?>
-		</div>
+		
 		<div id="postList">
 			<?php
 				//for viewing posts
@@ -113,7 +112,7 @@
 *	ADD COMMENT
 */
 					echo "<form method='POST' action='../back/do_add_comment.php'>
-							<textarea style='margin-left:10px;margin-bottom:10px;' rows=3 cols=93 placeholder='comment..' size=60 name='comment_box' required='required'></textarea>
+							<textarea style='margin-left:10px;margin-bottom:10px;' rows=2 cols=93 placeholder='comment..' size=60 name='comment_box' required='required'></textarea>
 							<input type='hidden' name='post_id' value=".$row['post_id']."></input>
 							<input  class='comment_button' type='submit' value='Comment'></input>
 						  </form>";				
