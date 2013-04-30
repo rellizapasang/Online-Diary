@@ -30,7 +30,7 @@
 		$type = 'image';
 		header("Location:../ui/home.php?insertedImage");
 	}
-	$insertQuery = "insert into post(username,date_posted,post_content,post_type,status) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\",'unlike')";
+	$insertQuery = "insert into post(username,date_posted,post_content,post_type) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\")";
 	mysql_query($insertQuery,$conn);
 	mysql_close($conn);
 	

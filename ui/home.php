@@ -63,24 +63,31 @@
 					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
 					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
-					$checkPostStatus = "select * from post where username='{$row['username']}' and post_id='{$row['post_id']}'";
-					$result2=mysql_query($checkPostStatus);
-					while($row2=mysql_fetch_array($result2)){
-						if($row2['status']=='unlike'){
-							echo '<form method="POST" action="../back/do_like_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Like'></input>";
-							echo "</form>";
-						}
-						else if($row2['status']=='like'){
-							echo '<form method="POST" action="../back/do_unlike_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Unlike'></input>";
-							echo "</form>";
+					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
+					$result2=mysql_query($checkLikeTable);
+					if(mysql_num_rows($result2)){
+						echo '<form method="POST" action="../back/do_unlike_post.php">';
+						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+						echo "<input type='submit' value='Unlike'></input>";
+						echo "</form>";
+					}
+					else{
+						echo '<form method="POST" action="../back/do_like_post.php">';
+						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+						echo "<input type='submit' value='Like'></input>";
+						echo "</form>";
+					}
+					//Checks and prints the liker(s) of the post
+					$checkLikers = "select * from like_table where post_id='{$row['post_id']}'";
+					$result3=mysql_query($checkLikers);
+					while($row2=mysql_fetch_array($result3)){
+						if($row2['post_id']==$row['post_id']){
+							echo $row2['username'];
 						}
 					}
+					
 /***
 *	REMOVE POST
 */

@@ -1,17 +1,14 @@
 <?php
-	//do_like_post.php
+	//do_unlike_post.php
 	session_start();
 	require_once("connect.php");
 	if(!isset($_SESSION['username'])){
 		header("Location:../index.php");
 	}
-	
 	$username=htmlspecialchars($_POST['userName']);
-	$date_posted=htmlspecialchars($_POST['date_posted']);
-	
+	$postId=htmlspecialchars($_POST['postId']);
 	//queries
-	$deleteQuery = "delete from like_table where date_posted='{$date_posted}'";
-	$updatePostStatus = "update post set status='unlike' where username=\"{$username}\" and date_posted='{$date_posted}'";
+	$deleteQuery = "delete from like_table where post_id=\"{$postId}\" and username=\"{$username}\"";
 	
 	//submit queries
 	mysql_query($deleteQuery,$conn);
