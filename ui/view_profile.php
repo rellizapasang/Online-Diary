@@ -33,7 +33,6 @@
 					echo "NAME: {$row['first_name']} {$row['last_name']}<br/>";
 					echo "BIRTHDATE: {$row['birth_date']}<br/>";
 					echo "GENDER: {$row['gender']}<br/>";
-					echo "HOME ADDRESS: {$row['home_add']}<br/>";
 					if(mysql_num_rows($result2)){
 					//button to view the posts of the user
 					echo '<form method="POST" action="../ui/peek_post.php">';

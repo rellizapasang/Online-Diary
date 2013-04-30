@@ -23,7 +23,6 @@
 				echo "NAME: {$row['first_name']} {$row['last_name']}<br/>";
 				echo "BIRTHDATE: {$row['birth_date']}<br/>";
 				echo "GENDER: {$row['gender']}<br/>";
-				echo "HOME ADDRESS: {$row['home_add']}<br/>";
 			}
 			mysql_close($conn);
 		?>

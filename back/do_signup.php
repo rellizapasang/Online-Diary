@@ -15,7 +15,7 @@
 	
 	
 	$pstmt2 = "select * from user where username = \"{$username}\"";
-	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\", \"{$gender}\", '$birthYear-$birthMonth-$birthDay', NULL,\"{$emailAdd}\")";
+	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\", \"{$gender}\", '$birthYear-$birthMonth-$birthDay',\"{$emailAdd}\")";
 	
 	$result = mysql_query($pstmt2,$conn);
 	if(mysql_num_rows($result)){

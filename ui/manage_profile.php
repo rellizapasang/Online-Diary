@@ -56,7 +56,6 @@
 										echo "<option value=$i>$i</option>";
 									}
 				echo 		   '</select><br/>';
-				echo 'Home Address <input name="homeAdd" class="textbox" type="text" value="'.$home_add.'" required=""/><br/>';
 				echo '<input class="submit" type="submit" value="Save"/>'; //save
 				echo '</form>';
 			}
