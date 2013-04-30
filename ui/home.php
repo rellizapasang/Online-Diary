@@ -78,10 +78,31 @@
 					//Checks and prints the liker(s) of the post
 					$checkLikers = "select * from like_table where post_id='{$row['post_id']}'";
 					$result3=mysql_query($checkLikers);
+					$result4=mysql_query($checkLikers);
+					
+					//Counts likes
+					$likeCounter = 0;
 					while($row2=mysql_fetch_array($result3)){
-						if($row2['post_id']==$row['post_id']){
-							echo $row2['username'];
+							if($row2['post_id']==$row['post_id']){
+								$likeCounter++; //counts the likes in the post
+							}
+					}
+						if($likeCounter==1){
+							echo $likeCounter." Like</br>";
+							
 						}
+						else if($likeCounter>=2){
+							echo $likeCounter." Likes</br>";
+							
+						}
+						else{
+							echo " ";
+						}
+					//Gets the users who liked the post
+					while($row4=mysql_fetch_array($result4)){
+							if($row4['post_id']==$row['post_id']){
+								echo $row4['username']." ";
+							}
 					}
 					
 /***
