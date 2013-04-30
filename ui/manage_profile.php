@@ -20,7 +20,6 @@
 			while($row=mysql_fetch_array($result)){
 				$first_name = $row['first_name'];
 				$last_name = $row['last_name'];
-				$home_add = $row['home_add'];
 				echo '<form method="POST" action="../back/do_edit_profile_info.php">';
 				echo 'First Name <input name="firstName" placeholder= "First" type="text" title="Enter your first name"  value="'.$first_name.'" required=""/><br/>';
 				echo 'Last Name <input name="lastName" placeholder= "Last" type="text" title="Enter your last name"  value="'.$last_name.'" required=""/><br/>';
