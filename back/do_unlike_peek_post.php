@@ -1,10 +1,3 @@
-
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	
 <?php
 		//do_like_post.php
 		session_start();
@@ -20,13 +13,9 @@
 		$deleteQuery = "delete from like_table where post_id='{$postId}' and username='{$username}'";
 		$updatePostStatus = "update post set status='unlike' where username=\"{$username2}\" and post_id='{$postId}'";
 		
-		//echo $updatePostStatus;
 		
 		//submit queries
 		mysql_query($deleteQuery,$conn);
 		mysql_query($updatePostStatus,$conn);
 		header("Location:../ui/peek_post.php?uName={$username2}");
-
-	?>
-	</body>
-</html>
+?>

@@ -1,10 +1,4 @@
-
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	<?php
+<?php
 	//do_like_peek_post.php
 	session_start();
 	require_once("connect.php");
@@ -26,6 +20,3 @@
 	header("Location:../ui/peek_post.php?uName={$username2}");
 
 ?>
-
-	</body>
-</html>
