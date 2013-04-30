@@ -13,6 +13,7 @@
 		<meta charset="utf-8"/>
 	</head>
 	<body>
+		<?php include("nav.html");?>
 		<?php 
 			require_once("../back/connect.php");
 			//set values to the variables
@@ -43,10 +44,8 @@
 					}
 				}
 			}
-			
-			echo '<a href="peek_page.php"><input type="button" name="Back" value="Back"/></a>'; //cancel button for now..... fix it later
 			mysql_close($conn);
 		?>
-		<a href="../back/do_logout.php">Logout</a>
+		<br/><a href="javascript:history.back()">Back</a>
 	</body>
 </html>

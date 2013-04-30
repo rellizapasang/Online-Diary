@@ -13,6 +13,7 @@
 	</head>
 
 	<body>
+		<?php include("nav.html");?>
 		<?php 
 			require_once("../back/connect.php");
 			$username=$_SESSION['username'];
@@ -23,14 +24,9 @@
 				echo "BIRTHDATE: {$row['birth_date']}<br/>";
 				echo "GENDER: {$row['gender']}<br/>";
 				echo "HOME ADDRESS: {$row['home_add']}<br/>";
-				echo '<a href="manage_profile.php">Manage Profile</a><br/>';
-				echo '<a href="manage_account.php">Manage Account</a><br/>';
-				echo '<a href="home.php">Go to my diary..</a>';
-				echo '<a href="peek_page.php">Peeks</a><br/>';
-				$_SESSION['firstName']=$row['first_name'];
 			}
 			mysql_close($conn);
 		?>
-		<a href="../back/do_logout.php">Logout</a>
+		<br/><a href="javascript:history.back()">Back</a>
 	</body>
 </html>

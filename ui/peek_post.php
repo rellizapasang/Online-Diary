@@ -14,6 +14,7 @@
 	</head>
 
 	<body>
+			<?php include("nav.html");?>
 			<?php
 				//for viewing posts
 				require_once("../back/connect.php");
@@ -86,8 +87,6 @@
 					}
 			?>
 		</div>
-		
-
-		<br/><a href="../back/do_logout.php">Logout</a>
+		<br/><a href="javascript:history.back()">Back</a>
 	</body>
 </html>

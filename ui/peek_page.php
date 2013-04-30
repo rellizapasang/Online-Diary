@@ -12,6 +12,7 @@
 		<meta charset="utf-8"/>
 	</head>
 	<body>
+		<?php include("nav.html");?>
 		<?php 
 			require_once("../back/connect.php");
 			//set session username to variable username
@@ -27,7 +28,7 @@
 			
 			//search other users to peek
 			echo '<form method="POST" action="../ui/search_user.php">';
-			echo 'Search User <input name="userName" type="text" value=""/>';
+			echo 'Search User <input name="userName" type="text" value="" required=""/>';
 			echo '<input class="submit" type="submit" value="Search"/><br/>';
 			echo '</form>';
 			
@@ -60,10 +61,8 @@
 					echo "{$row['peekers']}<br/>";
 				}
 			}
-			
-			echo '<a href="profile.php"><input type="button" name="Cancel" value="Back"/></a>'; //back button for now..... fix it later
 			mysql_close($conn);
 		?>
-		<a href="../back/do_logout.php">Logout</a>
+		<br/><a href="javascript:history.back()">Back</a>
 	</body>
 </html>

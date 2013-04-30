@@ -13,6 +13,7 @@
 		<meta charset="utf-8"/>
 	</head>
 	<body>
+		<?php include("nav.html");?>
 		<?php 
 			require_once("../back/connect.php");
 			//set values to the variables

@@ -14,19 +14,11 @@
 	</head>
 
 	<body>
-	<script>
-		var currentDate = new Date()
-		//currentTime=currentTime.toUTCString();
-		var month = currentDate.getMonth() + 1
-		var day = currentDate.getDate()
-		var year = currentDate.getFullYear()
-		document.write("<h2 style='float:right'>"+month + "/" + day + "/" + year + "</h2>")
-	</script>
+	
+	<?php include("nav.html");?>
 	<!--ADD-->
-		-What happen to you today?<br/>
-         insert txt, images, quotes or links<br/>
 		<form method = "POST" action = "../back/do_post.php">
-			<textarea rows=30 cols=150 name="post_box" placeHolder="Dear Diary," required></textarea><br/> 
+			<textarea rows=5 cols=100 name="post_box" placeHolder="Dear Diary," required></textarea><br/> 
 			<input class="post" type="submit" name = "textButton" value = "POST"/><br/>
 		</form>
 		<button type="button" onclick="postQuote()">Insert Quote</button>
@@ -118,7 +110,5 @@
 		</div>
 		-Publish as private or public
 		-view previous posts
-
-		<br/><a href="../back/do_logout.php">Logout</a>
 	</body>
 </html>

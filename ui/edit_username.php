@@ -11,7 +11,7 @@
 		<meta charset="utf-8"/>
 	</head>
 	<body>
-		
+		<?php include("nav.html");?>
 		<?php 
 			require_once("../back/connect.php");
 			$username=$_SESSION['username'];
@@ -32,7 +32,7 @@
 			}
 			mysql_close($conn);
 		?>
-		<a href="../back/do_logout.php">Logout</a>
+		<a href="javascript:history.back()">Back</a>
 	</body>
 </html>
 
