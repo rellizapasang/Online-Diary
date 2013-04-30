@@ -4,6 +4,8 @@
 	require_once("connect.php");
 	//fetch data from post
 	
+	$postPrivacy=htmlspecialchars($_POST['privacy']);
+	
 	if(isset($_POST['textButton'])){
 		$post_content=htmlspecialchars($_POST['post_box']);
 		$username=htmlspecialchars($_SESSION['username']);
@@ -30,7 +32,7 @@
 		$type = 'image';
 		header("Location:../ui/home.php?insertedImage");
 	}
-	$insertQuery = "insert into post(username,date_posted,post_content,post_type) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\")";
+	$insertQuery = "insert into post(username,date_posted,post_content,post_type,post_privacy) values(\"{$username}\",date(now()),\"{$post_content}\",\"{$type}\",\"{$postPrivacy}\")";
 	mysql_query($insertQuery,$conn);
 	mysql_close($conn);
 	

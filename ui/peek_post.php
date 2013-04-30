@@ -29,7 +29,7 @@
 				}
 				else $username2 = $_POST['userName2'];
 				
-				$retrieveQuery = "select * from post where username = '{$username2}' order by date_posted desc";				
+				$retrieveQuery = "select * from post where username = '{$username2}' and post_privacy = 'public' order by date_posted desc";				
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
 					if($row['post_type'] === 'text') echo $row['username']." : ".$row['post_content']."<br/>"; //displays text

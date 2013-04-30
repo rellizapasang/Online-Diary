@@ -19,7 +19,12 @@
 	<!--ADD-->
 		<form method = "POST" action = "../back/do_post.php">
 			<textarea rows=5 cols=100 name="post_box" placeHolder="Dear Diary," required></textarea><br/> 
-			<input class="post" type="submit" name = "textButton" value = "POST"/><br/>
+			<input class="post" type="submit" name = "textButton" value = "POST"/>
+			<!--Select Privacy of the post-->
+			<select name="privacy">
+				<option value="private">Private</option>
+				<option value="public">Public</option>
+			</select>
 		</form>
 		<button type="button" onclick="postQuote()">Insert Quote</button>
 		<button type="button" onclick="postLink()">Insert Link</button>
@@ -112,10 +117,8 @@
 							<input type='hidden' name='post_id' value=".$row['post_id']."></input>
 							<input  class='comment_button' type='submit' value='Comment'></input>
 						  </form>";				
-					}
+				}
 			?>
 		</div>
-		-Publish as private or public
-		-view previous posts
 	</body>
 </html>
