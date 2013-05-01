@@ -22,8 +22,7 @@ function validateForm()
 	var image=document.forms["postForm"]["picture"].value;
 	var quote=document.forms["postForm"]["quote"].value;
 	var link=document.forms["postForm"]["link_source"].value;
-	if ((text==null || text=="") && (image==null || image=="") && (quote==null || quote=="") && (link==null || link==""))
-  	{
+	if ((text==null || text.trim()=="") && (image==null || image.trim()=="") && (quote==null || quote.trim()=="") && (link==null || link.trim()=="")){
   		alert("No input! Please fill the form correctly.");
   		return false;
   	}

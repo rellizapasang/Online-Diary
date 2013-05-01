@@ -23,15 +23,15 @@
 			_______________________________________________________________________________<br/><br/>  
 			Add a pic!<br/>
 			<input type="file" name="picture"/>
-			Image Caption:<input name="caption" type=text/><br/><br/>
+			Image Caption:<input name="caption" type="text"/><br/><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a quote!<br/>
-			Author:<input name="author" type=text/><br/>
+			<input name="author" type="text" placeHolder="Author" /><br/>
 			<textarea rows=2 cols=77 name="quote" placeHolder="'Quote'"></textarea><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a Link!<br/>
-			Text to display:<input size=50 name="link_name" type=text/><br/>
-			Web address:<input size=50 name="link_source" type=text/><br/>
+			<input size=50 name="link_name" type="text" placeHolder="Text to display"/><br/>
+			<input size=50 name="link_source" type="text" placeHolder="Web address"/><br/>
 			_______________________________________________________________________________<br/><br/> 
 			<br/><input class="post" type="submit" name = "textButton" value = "POST"/> 			
 			<!--Select Privacy of the post-->
