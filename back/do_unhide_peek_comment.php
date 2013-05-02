@@ -10,5 +10,5 @@
 	
 	$result=mysql_query($updateQuery,$conn);
 	mysql_close($conn);
-	header("Location:../ui/home.php");
+	header("Location:../ui/post.php");
 ?>

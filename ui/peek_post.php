@@ -28,63 +28,62 @@
 					$username2 = $_GET['uName'];
 				}
 				else $username2 = $_POST['userName2'];
-				
-				$retrieveQuery = "select * from post where username = '{$username2}' and post_privacy = 'public' order by date_posted desc";				
+
+				$retrieveQuery = "select * from post where username = '{$username2}' order by date_posted desc";				
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
-					if($row['post_type'] === 'text') echo $row['username']." : ".$row['post_content']."<br/>"; //displays text
-					else if($row['post_type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>"; //displays quote
-					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
-					else echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
+					echo "________________________________________________________________________________<br/>";
+					echo $row['username']." posts something!".$row['date_posted'];
+					if(strlen($row['text_post']) !==0) echo $row['text_post']."<br/>"; //displays text
+					if(strlen($row['quote_post']) !==0) echo $row['quote_post']."<br/>"; //displays quote
+					if(strlen($row['link_source']) !==0) echo '<a style="margin-left:10px" target="_blank" href="'.$row['link_source'].'">'.$row['link_name'].'</a><br/>'; //displays link
+					if($row['image_post'] !== "") echo $row['image_caption']."<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
-						if(mysql_num_rows($result2)){
-							echo '<form method="POST" action="../back/do_unlike_peek_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo "<input type='hidden' name='userName2' value=".$username2."></input>";
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Unlike'></input>";
-							echo "</form>";
+					if(mysql_num_rows($result2)){
+						echo '<form method="POST" action="../back/do_unlike_post.php">';
+						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+						echo "<input type='submit' value='Unlike'></input>";
+						echo "</form>";
+					}
+					else{
+						echo '<form method="POST" action="../back/do_like_post.php">';
+						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
+						echo "<input type='submit' value='Like'></input>";
+						echo "</form>";
+					}
+					//Checks and prints the liker(s) of the post
+					$checkLikers = "select * from like_table where post_id='{$row['post_id']}'";
+					$result3=mysql_query($checkLikers);
+					$result4=mysql_query($checkLikers);
+					
+					//Counts likes
+					$likeCounter = 0;
+					while($row2=mysql_fetch_array($result3)){
+							if($row2['post_id']==$row['post_id']){
+								$likeCounter++; //counts the likes in the post
+							}
+					}
+						if($likeCounter==1){
+							echo $likeCounter." Like</br>";
+							
+						}
+						else if($likeCounter>=2){
+							echo $likeCounter." Likes</br>";
+							
 						}
 						else{
-							
-							echo '<form method="POST" action="../back/do_like_peek_post.php">';
-							echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
-							echo "<input type='hidden' name='userName2' value=".$username2."></input>";
-							echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
-							echo "<input type='submit' value='Like'></input>";
-							echo "</form>";
+							echo " ";
 						}
-						//Checks and prints the liker(s) of the post
-						$checkLikers = "select * from like_table where post_id='{$row['post_id']}'";
-						$result3=mysql_query($checkLikers);
-						$result4=mysql_query($checkLikers);
-					
-						//Counts likes
-						$likeCounter = 0;
-						while($row2=mysql_fetch_array($result3)){
-								if($row2['post_id']==$row['post_id']){
-									$likeCounter++; //counts the likes in the post
-								}
-						}
-							if($likeCounter==1){
-								echo $likeCounter." Like</br>";
-								
+					//Gets the users who liked the post
+					while($row4=mysql_fetch_array($result4)){
+							if($row4['post_id']==$row['post_id']){
+								echo $row4['username']." ";
 							}
-							else if($likeCounter>=2){
-								echo $likeCounter." Likes</br>";
-								
-							}
-							else{
-								echo " ";
-							}
-						//Gets the users who liked the post
-						while($row4=mysql_fetch_array($result4)){
-								if($row4['post_id']==$row['post_id']){
-									echo $row4['username']." ";
-								}
-						}
+					}
 
 /***
 *	RETRIEVE COMMENTS
