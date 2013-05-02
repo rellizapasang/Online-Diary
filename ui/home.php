@@ -16,14 +16,14 @@
 	<body>
 	<?php include("nav.html");?>
 	<!--ADDING A POST-->
-		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_post.php">
+		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_post.php" enctype="multipart/form-data">
 			<input type="text" size=100 name="title" placeHolder="Title(Optional)"/><br/>
 
 			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a pic!<br/>
 			<input type="file" name="picture"/>
-			Image Caption:<input name="caption" type="text"/><br/><br/>
+			<input name="caption" type="text" placeHolder="Image Caption"/><br/><br/> 
 			_______________________________________________________________________________<br/><br/>  
 			Add a quote!<br/>
 			<input name="author" type="text" placeHolder="Author" /><br/>
@@ -47,17 +47,18 @@
 				require_once("../back/connect.php");
 				$username = $_SESSION['username'];
 				
-				
 /***
 *	RETRIEVE POSTS
 */				
 				$retrieveQuery = "select * from post where username = '{$username}' order by date_posted desc";				
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
-					if($row['post_type'] === 'text') echo $row['username']." : ".$row['post_content']."<br/>"; //displays text
-					else if($row['post_type'] === 'quote') echo $row['username']." : ".$row['post_content']."<br/>"; //displays quote
-					else if($row['post_type'] === 'link') echo $row['username'].'<a style="margin-left:10px" target="_blank" href="'.$row['post_content'].'">'.$row['post_content'].'</a><br/>'; //displays link
-					else if($row['post_type'] === 'image')echo $row['username']."<img alt='' src='post_images/".$row['post_content']."' width='150' height='150'></img><br/>"; //displays image
+					echo "________________________________________________________________________________<br/>";
+					echo $row['username']." posts something!".$row['date_posted'];
+					if(strlen($row['text_post']) !==0) echo $row['text_post']."<br/>"; //displays text
+					if(strlen($row['quote_post']) !==0) echo $row['quote_post']."<br/>"; //displays quote
+					if(strlen($row['link_source']) !==0) echo '<a style="margin-left:10px" target="_blank" href="'.$row['link_source'].'">'.$row['link_name'].'</a><br/>'; //displays link
+					if($row['image_post'] !== "") echo $row['image_caption']."<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
