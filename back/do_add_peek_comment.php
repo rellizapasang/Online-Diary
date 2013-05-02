@@ -14,7 +14,7 @@
 	$postId=htmlspecialchars($_POST['postId']);
 	$username=htmlspecialchars($_SESSION['username']);
 	$comment_content=htmlspecialchars($_POST['comment_box']);
-	$insertQuery = "insert into comment(post_id,username,comment_content,date) values('{$postId}',\"{$username}\",\"{$comment_content}\",sysdate())";
+	$insertQuery = "insert into comment(post_id,username,comment_content,date,status) values('{$postId}',\"{$username}\",\"{$comment_content}\",sysdate(),'unhidden')";
 	
 	
 	$result=mysql_query($insertQuery,$conn);
