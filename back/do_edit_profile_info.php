@@ -16,8 +16,7 @@
 	$birthYear=htmlspecialchars($_POST['birth_year']);
 	$homeAdd=htmlspecialchars($_POST['homeAdd']);
 	
-	$query="UPDATE user SET first_name=\"{$firstName}\", last_name=\"{$lastName}\", gender=\"{$gender}\", birth_date='$birthYear-$birthMonth-$birthDay', 
-	home_add=\"{$homeAdd}\" WHERE username=\"{$username}\"";
+	$query="UPDATE user SET first_name=\"{$firstName}\", last_name=\"{$lastName}\", gender=\"{$gender}\", birth_date='$birthYear-$birthMonth-$birthDay' WHERE username=\"{$username}\"";
 
 	mysql_query($query,$conn);
 	header("Location:../ui/profile.php");

@@ -29,7 +29,7 @@
 				}
 				else $username2 = $_POST['userName2'];
 
-				$retrieveQuery = "select * from post where username = '{$username2}' order by date_posted desc";				
+				$retrieveQuery = "select * from post where username = '{$username2}' and post_privacy = 'public' order by date_posted desc";				
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
 					echo "________________________________________________________________________________<br/>";
@@ -42,15 +42,17 @@
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
 					if(mysql_num_rows($result2)){
-						echo '<form method="POST" action="../back/do_unlike_post.php">';
+						echo '<form method="POST" action="../back/do_unlike_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Unlike'></input>";
 						echo "</form>";
 					}
 					else{
-						echo '<form method="POST" action="../back/do_like_post.php">';
+						echo '<form method="POST" action="../back/do_like_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Like'></input>";
 						echo "</form>";
@@ -104,6 +106,7 @@
 							//hides comment
 							if($comment_row['status']=='unhidden'){
 								echo "<form method='POST' action='../back/do_hide_peek_comment.php'>";
+								echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 								echo "<input id='hide_button' type='submit' value='Hide'></input>";
 								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
 							}
@@ -111,6 +114,7 @@
 							else if ($comment_row['status']=="hidden"){
 								echo "  -This comment is hidden from other users.-";
 								echo "<form method='POST' action='../back/do_unhide_peek_comment.php'>";
+								echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 								echo "<input id='unhide_button' type='submit' value='Unhide'></input>";
 								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
 							}
