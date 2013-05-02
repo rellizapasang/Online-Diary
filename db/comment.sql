@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2013 at 01:36 AM
+-- Generation Time: May 02, 2013 at 02:13 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -30,11 +30,15 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `post_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `comment_content` varchar(300) NOT NULL,
+  `status` varchar(8) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `comment`
 --
 
+INSERT INTO `comment` (`comment_id`, `post_id`, `username`, `comment_content`, `status`, `date`) VALUES
+(3, 274, 'rellizapasang', 'i love mcdo', 'unhidden', '2013-05-02 09:45:16'),
+(5, 277, 'AthanPandi', 'im so handsome', 'hidden', '2013-05-02 10:08:01');
