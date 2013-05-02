@@ -44,6 +44,7 @@
 					if(mysql_num_rows($result2)){
 						echo '<form method="POST" action="../back/do_unlike_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Unlike'></input>";
 						echo "</form>";
@@ -51,6 +52,7 @@
 					else{
 						echo '<form method="POST" action="../back/do_like_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
+						echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Like'></input>";
 						echo "</form>";
