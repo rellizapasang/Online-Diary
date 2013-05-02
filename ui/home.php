@@ -54,11 +54,12 @@
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
 					echo "________________________________________________________________________________<br/>";
-					echo $row['username']." posts something!".$row['date_posted'];
-					if(strlen($row['text_post']) !==0) echo $row['text_post']."<br/>"; //displays text
-					if(strlen($row['quote_post']) !==0) echo $row['quote_post']."<br/>"; //displays quote
-					if(strlen($row['link_source']) !==0) echo '<a style="margin-left:10px" target="_blank" href="'.$row['link_source'].'">'.$row['link_name'].'</a><br/>'; //displays link
-					if($row['image_post'] !== "") echo $row['image_caption']."<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
+					echo $row['username']." posts something!".$row['date_posted']."<br/>";
+					if(strlen($row['post_title']) !==0) echo "Title:<br/>".$row['post_title']."<br/>"; //displays title					
+					if(strlen($row['text_post']) !==0) echo "Text:<br/>".$row['text_post']."<br/>"; //displays text
+					if(strlen($row['quote_post']) !==0) echo "Quote:<br/>".$row['quote_post']."<br/>"; //displays quote
+					if(strlen($row['link_source']) !==0) echo "Link:<br/>".'<a style="margin-left:10px" target="_blank" href="'.$row['link_source'].'">'.$row['link_name'].'</a><br/>'; //displays link
+					if($row['image_post'] !== "") echo "Image:<br/>".$row['image_caption']."<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
@@ -111,8 +112,14 @@
 */
 				if($row['username']==$_SESSION['username']){
 					echo '<form method="POST" onSubmit="return deletePostAlert()" action="../back/do_remove_post.php">';
-					echo "<input id='remove_post_button' type='submit' value='Remove Post'></input>";
-					echo "<input type='hidden' name='post_id' value=".$row['post_id']."></input></form>";
+					echo "<input type='hidden' name='post_id' value=".$row['post_id']."></input>";
+					echo "<input id='remove_post_button' type='submit' value='Remove Post'></input></form>";
+/***
+*	EDIT POST
+*/
+					echo '<form method="POST" action="edit_post.php">';
+					echo "<input type='hidden' name='post_id' value=".$row['post_id']."></input>";
+					echo "<input id='edit_post_button' type='submit' value='Edit Post'></input></form>";
 				}
 /***
 *	RETRIEVE COMMENTS

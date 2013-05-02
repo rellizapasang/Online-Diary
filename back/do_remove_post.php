@@ -10,6 +10,7 @@
 	//execute delete post query	
 	mysql_query($deleteQuery,$conn);
 	mysql_query($deleteCommentQuery,$conn);
+	mysql_query($deleteLikeTableEntry,$conn);
 	mysql_close($conn);
-	header("Location:../ui/home.php");
+	header("Location:{$_SERVER['HTTP_REFERER']}");
 ?>
