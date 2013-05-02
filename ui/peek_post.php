@@ -104,6 +104,7 @@
 							//hides comment
 							if($comment_row['status']=='unhidden'){
 								echo "<form method='POST' action='../back/do_hide_peek_comment.php'>";
+								echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 								echo "<input id='hide_button' type='submit' value='Hide'></input>";
 								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
 							}
@@ -111,6 +112,7 @@
 							else if ($comment_row['status']=="hidden"){
 								echo "  -This comment is hidden from other users.-";
 								echo "<form method='POST' action='../back/do_unhide_peek_comment.php'>";
+								echo "<input type='hidden' name='userName2' value=".$username2."></input>";
 								echo "<input id='unhide_button' type='submit' value='Unhide'></input>";
 								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
 							}
