@@ -119,8 +119,29 @@
 					$retrieveComment = "select * from comment where post_id=".$row['post_id']." order by date ASC";
 					$result2=mysql_query($retrieveComment,$conn);
 					while($comment_row=mysql_fetch_array($result2)){
-						echo $comment_row['username'].": ".$comment_row['comment_content'];
-						if($comment_row['username']==$_SESSION['username']){
+						//if a comment is not the user's comment and the status is hidden, do not print anything.
+						if(($comment_row['username']!=$_SESSION['username'])&&($comment_row['status']=='hidden')){
+						}
+						//else if a comment is not the user's comment and the status is unhidden, print comment.
+						else if(($comment_row['username']!=$_SESSION['username'])&&($comment_row['status']=='unhidden')){
+							echo $comment_row['username'].": ".$comment_row['comment_content'];
+						}
+						//else if a comment is from the user
+						else if($comment_row['username']==$_SESSION['username']){
+							echo $comment_row['username'].": ".$comment_row['comment_content'];
+							//hides comment
+							if($comment_row['status']=='unhidden'){
+								echo "<form method='POST' action='../back/do_hide_comment.php'>";
+								echo "<input id='hide_button' type='submit' value='Hide'></input>";
+								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
+							}
+							//unhides comment
+							else if ($comment_row['status']=="hidden"){
+								echo "  -This comment is hidden from other users.-";
+								echo "<form method='POST' action='../back/do_unhide_comment.php'>";
+								echo "<input id='unhide_button' type='submit' value='Unhide'></input>";
+								echo "<input type='hidden' name='comment_id' value=".$comment_row['comment_id']."></input></form>";
+							}
 							//deletes comment
 							echo "<form method='POST' onSubmit='return deleteCommentAlert()' action='../back/do_delete_comment.php'>";
 							echo "<input id='remove_button' type='submit' value='Remove'></input>";
@@ -128,6 +149,7 @@
 							echo "<div class='date'>".$comment_row['date']."</div></div>";
 						}
 						else echo "<div class='date'>".$comment_row['date']."</div></div>";
+						
 					}
 /***
 *	ADD COMMENT
