@@ -29,7 +29,7 @@
 				}
 				else $username2 = $_POST['userName2'];
 
-				$retrieveQuery = "select * from post where username = '{$username2}' order by date_posted desc";				
+				$retrieveQuery = "select * from post where username = '{$username2}' and post_privacy = 'public' order by date_posted desc";				
 				$result=mysql_query($retrieveQuery,$conn);
 				while($row=mysql_fetch_array($result)){
 					echo "________________________________________________________________________________<br/>";
@@ -42,14 +42,14 @@
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
 					if(mysql_num_rows($result2)){
-						echo '<form method="POST" action="../back/do_unlike_post.php">';
+						echo '<form method="POST" action="../back/do_unlike_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Unlike'></input>";
 						echo "</form>";
 					}
 					else{
-						echo '<form method="POST" action="../back/do_like_post.php">';
+						echo '<form method="POST" action="../back/do_like_peek_post.php">';
 						echo '<input name="userName" type="hidden" value="'.$row['username'].'"/><br/>';
 						echo '<input name="postId" type="hidden" value="'.$row['post_id'].'">';
 						echo "<input type='submit' value='Like'></input>";
