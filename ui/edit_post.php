@@ -36,21 +36,21 @@
 	?>
 
 	<!--EDIT POST-->
-		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_edit_post.php" enctype="multipart/form-data">
+		<form method = "POST" name="postForm" onSubmit="return validateEditForm()" action = "../back/do_edit_post.php" enctype="multipart/form-data">
 			Start Editing!<br/>	
 			<input type="hidden" name="post_id" value="<?php echo $post_id; ?>"/>
 			Title:<input type="text" size=100 name="title" value="<?php echo $title;?>"/><br/>
 			Text:<br/><textarea rows=3 cols=77 name="text"><?php echo $text;?></textarea><br/>
 			_______________________________________________________________________________<br/><br/>  
 			<?php
-				
-				if(strlen(trim($image_post))!==0){			
-					echo 'Replace Image:<input type="file" name="picture"/><br/>';
-					echo "<div id='currentImage'><img alt='' src='post_images/".$image_post."' width='150' height='150'></div>";
+				if($image_post!==""){			
+					echo 'Replace Image:<input id="upload" type="file" name="picture"/><br/>';
+					echo "<img name='currentImage' alt='taken' src='post_images/".$image_post."' width='150' height='150'/>";
 				}
 				else{
-					echo 'Add Image:<input type="file" name="picture"/>';
-				} 
+					echo 'Add Image:<input id="upload" type="file" name="picture"/>';
+					echo "<img name='currentImage' alt='' src='' width='0' height='0'/>";
+				}
 				echo '<br/>Caption:<input name="caption" type="text" value="'.$image_caption.'"/><br/>'
 			?>_______________________________________________________________________________<br/><br/>  
 			Quote:<br/><textarea rows=2 cols=77 name="quote"><?php echo $quote?></textarea><br/>
@@ -66,8 +66,9 @@
 				if($post_privacy==="private") echo '<select name="privacy"><option value="private" selected="selected">Private</option><option value="public">Public</option></select>';
 				else echo '<select name="privacy"><option value="private">Private</option><option value="public" selected="selected">Public</option></select>';
 			?>
-			<br/><input class="post" type="submit" name = "textButton" value = "SAVE"/> 			
+			<br/><input class="post" type="submit" name = "textButton" value = "SAVE"/>
 		</form>
+		<a href="javascript:history.back()"><button>Cancel</button></a>	
 		</div>
 	</body>
 </html>

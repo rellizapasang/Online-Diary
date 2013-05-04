@@ -18,12 +18,12 @@
 	<!--ADDING A POST-->
 		<form method = "POST" name="postForm" onSubmit="return validateForm()" action = "../back/do_post.php" enctype="multipart/form-data">
 			<input type="text" size=100 name="title" placeHolder="Title(Optional)"/><br/>
-
 			<textarea rows=3 cols=77 name="text" placeHolder="Dear Diary,"></textarea><br/>
 			_______________________________________________________________________________<br/><br/>  
 			Add a pic!<br/>
-			<input type="file" name="picture"/>
+			<input id="upload" type="file" name="picture"/>
 			<input name="caption" type="text" placeHolder="Image Caption"/><br/><br/> 
+			<h6 style="color:grey;">(Extensions: .jpeg, .jpg, .gif, .png)</h6>
 			_______________________________________________________________________________<br/><br/>  
 			Add a quote!<br/>
 			<input name="author" type="text" placeHolder="Author" /><br/>
@@ -57,9 +57,9 @@
 					echo $row['username']." posts something!".$row['date_posted']."<br/>";
 					if(strlen($row['post_title']) !==0) echo "Title:<br/>".$row['post_title']."<br/>"; //displays title					
 					if(strlen($row['text_post']) !==0) echo "Text:<br/>".$row['text_post']."<br/>"; //displays text
-					if(strlen($row['quote_post']) !==0) echo "Quote:<br/>".$row['quote_post']."<br/>"; //displays quote
+					if(strlen($row['quote_post']) !==0) echo "Quote:<br/>{$row['quote_post']}-{$row['quote_author']}<br/>"; //displays quote
 					if(strlen($row['link_source']) !==0) echo "Link:<br/>".'<a style="margin-left:10px" target="_blank" href="'.$row['link_source'].'">'.$row['link_name'].'</a><br/>'; //displays link
-					if($row['image_post'] !== "") echo "Image:<br/>".$row['image_caption']."<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
+					if($row['image_post'] !== "") echo "Image:<br/>{$row['image_caption']}<br/><img alt='' src='post_images/".$row['image_post']."' width='150' height='150'></img><br/>"; //displays image
 					//LIKE/UNLIKE BUTTON
 					$checkLikeTable = "select * from like_table where username='{$username}' and post_id='{$row['post_id']}'";
 					$result2=mysql_query($checkLikeTable);
