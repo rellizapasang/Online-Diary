@@ -9,9 +9,11 @@
 	<head>
 		<title>Manage Profile</title>
 		<meta charset="utf-8"/>
+		<script type="text/javascript" src="js/post.js"></script>
 	</head>
 	<body>
 		<?php include("nav.html");?>
+		
 		<?php 
 			require_once("../back/connect.php");
 			$username=$_SESSION['username'];
@@ -20,7 +22,9 @@
 			while($row=mysql_fetch_array($result)){
 				$first_name = $row['first_name'];
 				$last_name = $row['last_name'];
-				echo '<form method="POST" action="../back/do_edit_profile_info.php">';
+				echo '<form method="POST" name="postUserForm" onSubmit="return validateImage()" action="../back/do_edit_profile_info.php" enctype="multipart/form-data">';
+				echo 'Upload a profile picture :)<br/><input id="upload" type="file" name="picture"/>';
+				echo '<h6 style="color:grey;">(Extensions: .jpeg, .jpg, .gif, .png)</h6>';
 				echo 'First Name <input name="firstName" placeholder= "First" type="text" title="Enter your first name"  value="'.$first_name.'" required=""/><br/>';
 				echo 'Last Name <input name="lastName" placeholder= "Last" type="text" title="Enter your last name"  value="'.$last_name.'" required=""/><br/>';
 				echo 'Gender <select name="gender">

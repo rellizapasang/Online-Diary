@@ -63,3 +63,17 @@ function validateEditForm(){//function that checks the values of the edited post
 		}
 	}
 }
+
+function validateImage(){//function that checks the values of the edited post
+	var image=document.forms["postUserForm"]["picture"].value;					//get the value of the uploaded image
+	//condition that validates the uploaded image file extension
+	if(image!=""){
+		var arr = image.split(".");
+		var arr1 = image.split("\\");
+		if (arr[1] == "gif" || arr[1] == "jpg" || arr[1] == "jpeg" || arr[1] == "png") return true;
+		else{
+			alert("Invalid image.Please upload a correct file.");
+			return false;
+		}
+	}
+}
