@@ -1,0 +1,147 @@
+@font-face
+{
+	font-family:titlefont;
+	src: url('../fonts/scribble_box.ttf');
+}
+#centerbox{
+	height: 550px;
+	width:410px;
+	margin: auto;
+	background-image: url(../site_images/signupCover.png);
+	background-size: 410px, 500px;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+	text-align:left;
+	box-shadow: 0 0 17px 0px #000 inset, 0 0 26px 0px #000;
+	border-radius:5px;
+}
+
+input{
+	border-radius:5px;
+}
+
+#usernameBox{
+	position: relative;
+	top:63px;
+	left:113px;
+}
+
+#passwordBox{
+	position: relative;
+	top:85px;
+	left:113px;
+}
+#confirmPwdBox{
+	position:relative;
+	top:108px;
+	left:110px;
+}
+#emailAddBox{
+	position:relative;
+	top:130px;
+	left:110px;
+}
+#fullName{
+	position: relative;
+	top:150px;
+	left:108px;
+}
+
+#gender select{
+	background: transparent;
+	width: 80px;
+	padding: 5px;
+	font-size: 12px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0;
+	height: 25px;
+   -webkit-appearance: none;
+}
+#genderLabel{
+	position: relative;
+	top:175px;
+	left:125px;
+}
+#gender{
+	position: relative;
+	top:150px;
+	left:190px;
+   border-radius:5px;
+   width: 75px;
+   height: 20px;
+   overflow: hidden;
+   background: url(../site_images/down.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}
+.birthday select{
+   background: transparent;
+   width: 80px;
+   padding: 5px;
+   font-size: 12px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 25px;
+   -webkit-appearance: none;
+}
+#bdayLabel{
+	position:relative;
+	top:180px;
+	left:100px;
+	font-size:11px;
+}
+.birthday {
+   border-radius:5px;
+   width: 75px;
+   height: 20px;
+   overflow: hidden;
+   background: url(../site_images/down.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}
+
+.month{
+	position:relative;
+	top:160px;
+	left:133px;
+}
+
+.day{
+   position:relative;
+   top:138px;
+   left:213px;
+   border-radius:5px;
+   width: 35px;
+   height: 20px;
+   overflow: hidden;
+   background: url(../site_images/down.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}
+
+.year{
+   position:relative;
+   top:116px;
+   left:255px;
+   border-radius:5px;
+   width: 50px;
+   height: 20px;
+   overflow: hidden;
+   background: url(../site_images/down.jpg) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}
+
+#createButton{
+ /*  position:relative;
+   top:30px;
+   left:-20px;
+*/
+	position:relative;
+	top:175px;
+	left:135px;
+}
+
+#signIn{
+	position:relative;
+	top:175px;
+	left:60px;
+} 	 	

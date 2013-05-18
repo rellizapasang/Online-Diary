@@ -6,11 +6,12 @@
 	require_once("connect.php");//open db connection
 	//fetch data from post
 	$username=$_SESSION['username'];
+	$paper_color=htmlspecialchars($_POST['paper_color']);
 	$title = htmlspecialchars($_POST['title']);
 	$text = htmlspecialchars($_POST['text']);
 	$img = htmlspecialchars($_FILES['picture']['name']);
 	$caption = htmlspecialchars($_POST['caption']);
-	$quote = htmlspecialchars('"'.$_POST['quote'].'"');
+	$quote = htmlspecialchars($_POST['quote']);
 	$author = htmlspecialchars($_POST['author']);
 	$link_name = htmlspecialchars($_POST['link_name']);
 	$link_source = htmlspecialchars($_POST['link_source']);
@@ -26,7 +27,7 @@
 		$img=$ran2.$extension;											//initialize $img value
 	} 
 	
-	$insertQuery = "insert into post(username,date_posted,post_title,text_post,image_caption,image_post,quote_author,quote_post,link_name,link_source,post_privacy) values(\"{$username}\",sysdate(),\"{$title}\",\"{$text}\",\"{$caption}\",\"{$img}\",\"{$author}\",\"{$quote}\",\"{$link_name}\",\"{$link_source}\",\"{$postPrivacy}\")";
+	$insertQuery = "insert into post(username,date_posted,paper_color,post_title,text_post,image_caption,image_post,quote_author,quote_post,link_name,link_source,post_privacy) values(\"{$username}\",sysdate(),\"{$paper_color}\",\"{$title}\",\"{$text}\",\"{$caption}\",\"{$img}\",\"{$author}\",\"{$quote}\",\"{$link_name}\",\"{$link_source}\",\"{$postPrivacy}\")";
 	
 	mysql_query($insertQuery,$conn);		//execute sql query
 	header("Location:../ui/home.php");		//redirect to home page

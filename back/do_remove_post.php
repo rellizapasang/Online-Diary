@@ -12,5 +12,5 @@
 	mysql_query($deleteCommentQuery,$conn);
 	mysql_query($deleteLikeTableEntry,$conn);
 	mysql_close($conn);
-	header("Location:{$_SERVER['HTTP_REFERER']}");
+	header("Location:../ui/home.php");
 ?>

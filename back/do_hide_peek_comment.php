@@ -14,5 +14,4 @@
 	
 	//submit queries
 	mysql_query($updateQuery,$conn);
-	header("Location:../ui/peek_post.php?uName={$username2}")
 ?>

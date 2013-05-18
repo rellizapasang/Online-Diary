@@ -1,0 +1,108 @@
+@font-face
+{
+	font-family:font;
+	src: url('../fonts/font1.woff');
+}
+
+*{
+	margin:0;
+	padding:0;
+	text-decoration:0;
+	font-family:font;
+}
+
+body{
+	height: auto;
+	width: auto;
+	margin:0px 0px; 
+	padding:0px;
+	text-align:center;
+	background-image: url(../site_images/bg1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+  
+}
+
+#centercontainer{
+  /*position: fixed;*/
+  
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#centerbox{
+	height: 550px;
+	width:410px;
+	margin: auto;
+	background-image: url(../site_images/cover.png);
+	background-size: 410px, 500px;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+	text-align:left;
+	box-shadow: 0 0 17px 0px #000 inset, 0 0 26px 0px #000;
+	border-radius:5px;
+}
+
+#contents{
+height: 550px;
+width: 490px;
+color: white;
+font-size: 11px;
+margin-top: 50px;
+}
+
+#main_container{
+    height: auto;
+	width: inherit;
+	margin: auto;
+}
+
+#logincontainer{
+	height: 630px;
+	width: 180px;
+	margin: auto;
+	float: right;
+	text-align:center;
+}
+
+#logincontents{
+ height: 280px;
+ width: 180px;
+ margin: auto;
+ float: right;
+ padding-top:15%;
+ margin-top: -250%;
+ margin-right: 125px;
+ text-align:center;
+}
+
+#indexwelcome{
+	position: relative;
+	top: 520px;
+}
+
+#usernameholder{
+	position: absolute;
+	top: 225px;
+}
+
+#passwordholder{
+	position: absolute;
+	top: 295px;
+}
+
+#loginbuttonholder{
+	position: relative;
+	top: 777px;
+	left: -74px;
+}
+
+#signupbuttonholder{
+	position: relative;
+	top: 694px;
+	left: 90px;
+}

@@ -15,7 +15,7 @@
 	
 	
 	$pstmt2 = "select * from user where username = \"{$username}\"";
-	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\", \"{$gender}\", '$birthYear-$birthMonth-$birthDay',\"{$emailAdd}\","")";
+	$pstmt="insert into user values(\"{$username}\",MD5(\"{$password}\"),\"{$firstName}\",\"{$lastName}\", \"{$gender}\", '$birthYear-$birthMonth-$birthDay',\"{$emailAdd}\",'default_user.png')";
 	
 	$result = mysql_query($pstmt2,$conn);
 	if(mysql_num_rows($result)){
@@ -29,7 +29,6 @@
 	}
 	else{
 		mysql_query($pstmt,$conn);
-		//header("Location:confirmed.php");
-		echo "Your account has been successfully created.You may now use your account details to login.<a href='../index.php'>Sign in</a>";
+		header("Location:../ui/confirmed.php");
 	}	
 ?>

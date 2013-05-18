@@ -31,6 +31,5 @@
 	}	
 	
 	mysql_query($editQuery,$conn);		//execute query
-	header("Location:../ui/home.php");	//redirect to home page
 	mysql_close($conn);					//close connection
 ?>

@@ -36,7 +36,6 @@
 			
 			mysql_close($conn);
 		?>
-		<a href="javascript:history.back()">Back</a>
 	</body>
 </html>
 

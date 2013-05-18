@@ -1,0 +1,26 @@
+@font-face
+{
+	font-family:titlefont;
+	src: url('../fonts/scribble_box.ttf');
+}
+@font-face
+{
+	font-family:textfont;
+	src: url('../fonts/font3.ttf');
+}
+
+#edit_post p{
+	font-family:titlefont;
+	font-size:20px;
+}
+#edit_post textarea{
+	font-family:textfont;
+	font-size:20px;
+	background-color:white;
+	border-radius:10px;
+	border:0px;
+}
+#edit_post input{
+	border-radius:5px;
+	font-size:15px;
+}

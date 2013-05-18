@@ -17,5 +17,6 @@
 		}
 		else header("Location:../index.php?invalidlogin");
 	}
+	header("Location:../index.php?invalidlogin");
 	mysql_close($conn);
 ?>

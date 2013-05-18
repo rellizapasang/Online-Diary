@@ -1,0 +1,651 @@
+@font-face
+{
+	font-family:font;1
+	font-size: 12px;
+	src: url('../fonts/font1.woff');
+}
+@font-face
+{
+	font-family:titlefont;
+	src: url('../fonts/scribble_box.ttf');
+}
+*{
+	font-size: 12px;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	font-family:font;
+}
+
+
+body{
+  	height: auto;
+	width: auto;
+	margin:0px 0px; 
+	padding:0px;
+	text-align:center;
+	background-image: url(../site_images/bg2.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+ }
+ 
+@font-face
+{
+	font-family:textfont;
+	src: url('../fonts/font3.ttf');
+}
+
+textarea#text_field{
+	font-family:textfont;
+	font-size:18px;
+	background-color:white;
+	border-radius:10px;
+	background-image:url(../site_images/line.png);
+}
+#title_field{
+	border-radius:5px;
+	padding:5px;
+}
+h3{
+width: 30x;
+}
+
+.viewpost
+{
+	box-shadow: 0 0 7px 0px #000 inset, 0 0 16px 0px #000;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.9);
+	color: black;
+	width: 750px;
+	min-height: 600px;
+	position: fixed;
+	z-index: 120;
+	top: 25px;
+    left: 23%;
+    right: 23%;
+	height:auto;
+}
+.overlay
+{
+	background-color: rgba(10, 10, 10, 0.7);
+	position:fixed;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	z-index:110;
+}
+
+
+#centercontainer{
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+#centerbox{
+height: 570px;
+width:920px;
+margin: auto;
+background-image: url(../site_images/bookbg3.png);
+background-size: 900px, 620px;
+background-position: 0px, -30px;
+background-repeat: no-repeat;
+text-align:left;
+background-color:;
+}
+
+
+
+#turningpage{
+position: relative;
+border-top:0px;
+top: -95px;
+left: 2px;
+}
+
+#newerturnbutton{
+position: relative;
+top: 380px;
+left: -387px;
+}
+
+#olderturnbutton{
+position: relative;
+top: 299px;
+left: 383px;
+}
+
+/*for home.php css*/
+#homenavbutton{
+background-color: transparent;
+position:relative;
+top: 80px;
+left: 10px;
+}
+
+#profilenavbutton{
+background-color: transparent;
+position:relative;
+top: 76px;
+left: 10px;
+}
+
+#peeksnavbutton{
+background-color: transparent;
+position:relative;
+top: 76px;
+left: 10px;
+}
+
+#explorenavbutton{
+background-color: transparent;
+position:relative;
+top: 76px;
+left: 10px;
+}
+
+#logoutnavbutton{
+background-color: transparent;
+position:relative;
+top: 76px;
+left: 10px;
+}
+
+/*buttons for home only*/
+#homenavbutton2{
+background-color: ;
+width: 90px;
+position:relative;
+top: -440px;
+left: 10px;
+}
+
+#profilenavbutton2{
+background-color: ;
+width: 90px;
+position:relative;
+top: -445px;
+left: 10px;
+}
+
+#peeksnavbutton2{
+background-color: ;
+width: 90px;
+position:relative;
+top: -445px;
+left: 10px;
+}
+#explorenavbutton2{
+background-color: ;
+width: 90px;
+position:relative;
+top: -445px;
+left: 10px;
+}
+
+#logoutnavbutton2{
+background-color: ;
+width: 90px;
+position:relative;
+top: -445px;
+left: 10px;
+}
+/*buttons for home only*/
+
+#title_field{
+position: relative;
+top:2px;
+left: -40px;
+}
+
+#postcontent{
+height: 420px;
+width: 300px;
+background-color:;
+position: relative;
+padding:10px;
+top: 0px;
+left: 0px;
+}
+
+
+#retrievepost{
+overflow-y: auto;
+overflow-x: hidden;
+height: 430px;
+width: 290px;
+background-color: ;
+font-size:12px;
+margin-top: 50px;
+text-align: left;
+padding-top: 0px;
+padding-bottom: 0px;
+padding-left: 50px;
+position: relative;
+top: -580px;
+left: 476px;
+}
+
+#diarytextinput{
+position: relative;
+height: 365px;
+width: 450px;
+top: -10px;
+left: -60px;	
+background-color:;
+padding-top: 10px;
+}
+
+
+
+#diarypostbutton{
+height: 20px;
+position: absolute;
+top: -8px;
+left:285px;
+background-color: ;
+}
+
+#postbutton{
+position:relative;
+top: 0px;
+left: -20px;
+}
+
+#postprivacy{
+position: relative;
+top: -24px;
+left: 40px;
+}
+
+#diaryentry{ 
+position: relative; 
+width: 320px;
+height: 145px; 
+left: 10px; 
+text-align: center;
+color:black;
+padding-top: 15px;
+}
+
+#diaryentryBG{ 
+background-color:;
+position: relative;
+top: -17px;
+width: 320px;
+height: 170px; 
+}
+
+#papercontent{
+height: 140px;
+position:relative;
+top:-150px;
+}
+
+#postfunctions{
+height: 25px;
+width: inherit;
+position: absolute;
+top: 110px;
+left: 115px;
+}
+
+#view_post_button{
+position: absolute;
+top: -20px;
+left: 75px;
+}
+#edit_post_button{
+position: absolute;
+top: -20px;
+left: 115px;
+}
+
+#remove_post_button{
+position: absolute;
+top: -20px;
+left: 155px;
+}
+
+#flippage{
+background-image: url(../site_images/left_page.png);
+}
+/*end home.php css*/
+
+/*for profile.php css*/
+#profilecontent{
+background-color:;
+height: 350px;	
+width: 320px;
+position: relative;
+top: -50px;
+left: 120px;
+}
+
+#edit_profile_field:hover ,#manage_account_field:hover{
+	height:50px;
+	width:50px;
+	border-radius:10px;
+	box-shadow: 0 0 7px 0px #000 inset, 0 0 10px 0px #000;
+}
+/*end profile.php css*/
+
+
+/*for peek_page.php css*/
+#searchuserspane{
+background-color: ;
+width: 300px;
+position: relative;
+top: -90px;
+left: 115px;
+}
+#mypeekspane{
+background-color: ;
+overflow-y: auto;
+height: 400px;
+width:330px;
+position: relative;
+top: -120px;
+left: 115px;
+}
+#peekerspane{
+background-color:;
+overflow-y: auto;
+height: 400px;
+width:330px;
+position: relative;
+top: -521px;
+left: 475px;
+}
+/*end peek_page.php css*/
+
+
+/*for manage_profile.php css*/
+#polaroidpic{
+height: 300px;
+width: 300px;
+background-color:;
+position: relative;
+top:0px;
+left: 30px;
+background-image: url(../site_images/polaroid2.png);
+background-size: 260px,50px;
+background-repeat: no-repeat;
+background-color:transparent;
+}
+
+#uploadimgtext{
+position: relative;
+top: 0px;
+left: 0px;
+}
+
+#profilepic{
+height: 180px;
+width: 205px;
+position: relative;
+top:30px;
+left:26px;
+}
+
+#uploadprofilepic{
+background-color:;
+height: 440px;
+width: 330px;
+position: relative;
+top: -90px;
+left: 120px;
+}
+
+#editprofileinfo{
+background-color:;
+width: 330px;
+position: relative;
+top: -500px;
+left: 540px;
+}
+/*end manage_profile.php css*/
+
+/*for profile.php css*/
+.profileview{
+	position: relative;
+	top:-100px;
+	left:120px;
+	background-image:url(../site_images/pbg.png);
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: 50% 0%;
+}
+/**/
+
+/* for peek_page.php css*/
+#peekprofilepic{
+height: 110px;
+width: 120px;
+position: relative;
+top:14px;
+left:14px;
+}
+#peekpolaroidpic{
+height:175px;
+width: 150px;
+background-color:	;
+position: relative;
+top:0px;
+left: 0px;
+background-image: url(../site_images/polaroid2.png);
+background-size: 150px,50px;
+background-repeat: no-repeat;
+}
+#mypeekusername{
+background-color:;
+text-align: center;
+height: 25px;
+width: 130px;
+position: relative;
+top: -38px;
+left: 10px;
+}
+#mypeekprofile{
+background-color:;
+height: 450px;
+width: 300px;
+position: relative;
+top:-94px;
+left: 120px;
+}
+/* end peek_page.php css*/
+
+/* for search_user.php css*/
+#searchpeekprofilepic{
+height: 120px;
+width: 117px;
+position: relative;
+top:18px;
+left:16px;
+}
+#searchpeekpolaroidpic{
+height:175px;
+width: 150px;
+background-color:	;
+position: relative;
+top:0px;
+left: 0px;
+background-image: url(../site_images/picbg.png);
+background-size: 150px,50px;
+background-repeat: no-repeat;
+}
+#searchuser{
+background-color:; 	
+width: 150px;
+position: relative;
+top: -110px;
+left:115px;
+}
+#searchuserspane1{
+background-color:; 	
+width: 400px;
+position: relative;
+top: -120px;
+left:115px;
+}
+#searchuserspane{
+background-color:; 	
+width: 400px;
+position: relative;
+top: -10px;
+left:0px;
+}
+/* end search_user.php css*/
+
+/* for view_profile.php css */
+#retrievepeekpost{
+height: 420px;
+width: 399px;
+background-color: ;
+position: relative;
+top: -410px;
+left: 300px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+#peekpostList{
+position: relative;
+left: 50px;
+}
+
+/* end view_profile.php css*/
+
+/* for explore.php css*/
+
+
+#showpublicposts{
+background-color:;
+height: 400px;
+width: 350px;
+overflow-y: auto;
+position:relative;
+top:-120px;
+left: 110px;
+}
+
+#showforpeekposts{
+background-color:;
+height: 400px;
+width: 350px;
+overflow-y: auto;
+position:relative;
+top:-536px;
+left: 470px;
+}
+
+#publicpostlabel{
+position: relative;
+top: -120px;
+left: 120px;
+}
+
+#forpeeklabel{
+position: relative;
+top: -556px;
+left: 470px;
+}
+
+#explore_view_post_button{
+position: absolute;
+top: -20px;
+left: 155px;
+}
+
+/**/
+
+
+
+
+.accordion{
+	height: 100px;
+    width:320px;
+    overflow:hidden;
+    list-style:none;
+    margin-bottom:10px;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.25);
+    background:transparent;
+	position: relative;
+	top: -40px;	
+	left: -5px;
+	
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -o-border-radius:10px;
+    border-radius:10px;
+}
+.accordion li{
+    float:left;
+    width:80px;
+    overflow:hidden;
+    height:250px;
+    -moz-transition:width 0.2s ease-out;
+    -webkit-transition:width 0.2s ease-out;
+    -o-transition:width 0.2s ease-out;
+    transition:width 0.2s ease-out;
+    -moz-transition-delay:0.15s;
+    -webkit-transition-delay:0.15s;
+    -o-transition-delay:0.15s;
+    transition-delay:0.15s;
+}
+.accordion li:first-of-type{
+    -moz-border-radius:10px 0 0 10px;
+    -webkit-border-radius:10px 0 0 10px;
+    -o-border-radius:10px 0 0 10px;
+    border-radius:10px 0 0 10px;
+}
+.accordion li:last-of-type{
+    -moz-border-radius:0 10px 10px 0;
+    -webkit-border-radius:0 10px 10px 0;
+    -o-border-radius:0 10px 10px 0;
+    border-radius:0 10px 10px 0;
+}
+.accordion div{
+    padding:10px;
+}
+.accordion:hover li{
+    width:10%;
+}
+.accordion li:hover{
+    width:70%;
+}
+.slide-01  { background:transparent; color:black; }
+.slide-02  { background:transparent; color:white; }
+.slide-03  { background:transparent; color:#333; text-shadow:none; }
+.slide-04  { background:transparent; color:white; }
+
+#uploadimg{
+position: relative;
+top: -70px;
+left: 65px;
+font-size: 7px;
+}
+
+
+#insertquote{
+position: relative;
+top: -70px;
+left: 65px;
+font-size: 7px;
+}
+
+#insertlink{
+position: relative;
+top: -70px;
+left: 65px;
+font-size: 7px;
+}
+
+#choosemood{
+position: relative;
+top: -90px;
+left: 60px;
+}

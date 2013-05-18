@@ -77,3 +77,10 @@ function validateImage(){//function that checks the values of the edited post
 		}
 	}
 }
+
+function unlike(){
+	var a='<?php';
+	var h='$deleteQuery = "delete from like_table where post_id=\"{$row['+"'postId'"+']}\" and username=\"{$row['+"'username'"+']}\"";';
+	var i='mysql_query($deleteQuery,$conn);?>';
+	document.getElementsByClassName('like_unlike_box').innerhtml=a+h+i;
+}
