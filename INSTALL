@@ -1,0 +1,7 @@
+What do I need?
+
+We assume that your server has activated support for PHP and that all files ending in .php are handled by PHP. On most servers, this is the default extension for PHP files, but ask your server administrator to be sure. If your server supports PHP, then you do not need to do anything. Just download and unzip the Online-Diary files, put them in your web directory and the server will automatically parse them for you. There is no need to compile anything nor do you need to install any extra tools. Most web hosts offer PHP support, but if your host does not, consider reading the »  PHP Links section for resources on finding PHP enabled web hosts.
+
+Let us say you want to save precious bandwidth and develop locally. In this case, you will want to install a web server, such as » Apache, and of course » PHP. You also need to install a database as well, in our project we used » MySQL.
+
+
