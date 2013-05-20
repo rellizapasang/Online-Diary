@@ -1,23 +1,13 @@
 ##Online-Diary
 
-This application can be run using any server (LAMP, WAMP, XAMPP) that supports PHP.
+Description:
+         A web application that notes everyday happenings and events of the user.
 
-Connecting to the database:
-    -Create a new database called "diary"
-    -Import tables* on the created database
-    
-    Before we can access data in a database, we must open a connection to the MySQL server.
-    The file for connection is located inside the Online-Diary/back/connect.php.
-    mysql_connect(host,username,password,dbname);
-    
-    Parameter	| Description
-    -------------------------------------------------------------------------------------
-    host		| Optional. Either a host name or an IP address
-    username	| Optional. The MySQL user name
-    password	| Optional. The password to log in with
-    dbname		| Optional. The default database to be used when performing queries
+DIARY:
 
-    *SQL files for tables are located in Online-Diary/db/ directory
-
-
-Running the program to the browser: localhost/Online-Diary
+-Write anything any time of the day -insert text, quotes, links, and images
+-Update records/happenings.
+-Delete pages in your diary.
+-Peek into someones diary.
+-View public stories.
+-Share your story to public or to peekers only.
