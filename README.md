@@ -5,9 +5,9 @@ Description:
 
 DIARY:
 
--Write anything any time of the day -insert text, quotes, links, and images
--Update records/happenings.
--Delete pages in your diary.
--Peek into someones diary.
--View public stories.
--Share your story to public or to peekers only.
+         -Write anything any time of the day -insert text, quotes, links, and images
+         -Update records/happenings.
+         -Delete pages in your diary.
+         -Peek into someones diary.
+         -View public stories.
+         -Share your story to public or to peekers only.
