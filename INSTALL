@@ -2,7 +2,7 @@
 
 We assume that your server has activated support for PHP and that all files ending in .php are handled by PHP.
 On most servers, this is the default extension for PHP files, but ask your server administrator to be sure.
-You also need to install a MYSQL database as well to run our project. 
+You also need to install a MYSQL database to run our project. 
 
 
 Download the online diary repository as a zip file, extract them in your web directory and the server will automatically
@@ -132,7 +132,8 @@ $conn=mysql_connect($hostname,$username,$password);
   		if(!$conn) die("cannot connect to the db server: ".mysql_error());
 ?>
 
-Once you've connected, you're going to want to select a database to work with. In our project, the database is called 'diary'. To start working in this database, you'll need the mysql_select_db() function:
+Once you've connected, you're going to want to select a database to work with. In our project, the database
+is called 'diary'. To start working in this database, you'll need the mysql_select_db() function:
 
 <?php
 //select a database to work with
